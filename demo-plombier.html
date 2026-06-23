@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plombier Express 62 — Dépannage rapide</title>
+<meta name="description" content="Plombier Express 62 : dépannage et installation sanitaire en urgence, intervention rapide. Démo de site réalisée par Nexa Web.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --blue: #1d3557;
+    --blue-dark: #0d1b2a;
+    --orange: #f4a261;
+    --orange-strong: #ff8c42;
+    --bg: #0b1420;
+    --surface: #15233a;
+    --text: #e9eef5;
+    --text-muted: #93a3b8;
+    --border: #233246;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; text-decoration: none; }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--blue-dark);
+    border-bottom: 2px solid var(--orange);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+  }
+
+  .logo { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 800; }
+  .logo span { color: var(--orange); }
+
+  nav ul { display: flex; gap: 26px; list-style: none; flex-wrap: wrap; }
+
+  nav a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover { color: var(--orange); }
+
+  /* Hero urgence */
+  .hero {
+    background: linear-gradient(135deg, var(--blue-dark), var(--blue) 80%);
+    padding: 110px 0 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '🔧';
+    position: absolute;
+    font-size: 13rem;
+    opacity: 0.08;
+    right: -30px;
+    bottom: -40px;
+  }
+
+  .hero__badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(244, 162, 97, 0.15);
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 7px 16px;
+    border-radius: 999px;
+    margin-bottom: 22px;
+  }
+
+  .hero__badge::before {
+    content: '●';
+    color: #4ade80;
+    font-size: 0.7rem;
+  }
+
+  .hero h1 {
+    position: relative;
+    font-size: clamp(2.1rem, 5vw, 3.1rem);
+    margin-bottom: 18px;
+    font-weight: 800;
+  }
+
+  .hero p {
+    position: relative;
+    max-width: 560px;
+    margin: 0 auto 36px;
+    color: var(--text-muted);
+    font-size: 1.08rem;
+  }
+
+  .btn {
+    position: relative;
+    display: inline-block;
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.02rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn--orange {
+    background: var(--orange-strong);
+    color: #1a0f06;
+    box-shadow: 0 10px 30px rgba(255, 140, 66, 0.4);
+  }
+
+  .btn--orange:hover { transform: translateY(-3px); }
+
+  section { padding: 80px 0; }
+
+  .section-head { text-align: center; max-width: 600px; margin: 0 auto 48px; }
+
+  .section-tag {
+    color: var(--orange);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+
+  .section-head h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); }
+
+  /* Services */
+  .services__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .service-card:hover { transform: translateY(-6px); border-color: var(--orange); }
+  .service-card__icon { font-size: 2.1rem; margin-bottom: 14px; }
+  .service-card h3 { font-size: 1rem; margin-bottom: 8px; }
+  .service-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+  /* Zone d'intervention */
+  .zone { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  .zone__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .zone__chip {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+
+  /* Contact rapide */
+  .contact-rapide { text-align: center; }
+
+  .contact-rapide__phone {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--orange);
+    margin: 18px 0 28px;
+  }
+
+  .contact__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+    margin-top: 36px;
+  }
+
+  .contact-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 18px;
+  }
+
+  .contact-item__icon { font-size: 1.6rem; margin-bottom: 10px; }
+  .contact-item h3 { font-size: 0.95rem; margin-bottom: 6px; }
+  .contact-item p { font-size: 0.88rem; color: var(--text-muted); }
+
+  footer {
+    background: var(--blue-dark);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.85rem;
+  }
+
+  .back-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--orange-strong);
+    color: #1a0f06;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    z-index: 200;
+    transition: transform 0.2s ease;
+  }
+
+  .back-btn:hover { transform: translateY(-3px); }
+
+  @media (max-width: 760px) {
+    .header__inner { flex-direction: column; gap: 12px; }
+    .services__grid { grid-template-columns: repeat(2, 1fr); }
+    .contact__grid { grid-template-columns: 1fr; }
+    .back-btn { right: 16px; bottom: 16px; padding: 11px 18px; font-size: 0.78rem; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="header__inner">
+      <span class="logo">Plombier <span>Express 62</span></span>
+      <nav>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#zone">Zone d'intervention</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="accueil">
+    <div class="container">
+      <span class="hero__badge">Disponible 24h/24 — 7j/7</span>
+      <h1>Une fuite ? Une panne ?<br>On intervient en moins d'1h</h1>
+      <p>Plombier Express 62 dépanne et installe vos équipements sanitaires en urgence, partout dans le secteur de Carvin et ses environs.</p>
+      <a href="#contact" class="btn btn--orange">📞 Appeler en urgence</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Nos services</p>
+        <h2>Une intervention pour chaque problème</h2>
+      </div>
+      <div class="services__grid">
+        <article class="service-card">
+          <div class="service-card__icon">🚿</div>
+          <h3>Débouchage</h3>
+          <p>Débouchage de canalisations, éviers et WC, rapide et efficace.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon">💧</div>
+          <h3>Recherche de fuite</h3>
+          <p>Détection précise des fuites d'eau avant qu'elles ne s'aggravent.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon">🚰</div>
+          <h3>Installation sanitaire</h3>
+          <p>Pose et remplacement de robinetterie, WC, douches et baignoires.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon">🔥</div>
+          <h3>Dépannage chauffe-eau</h3>
+          <p>Réparation et remplacement de chauffe-eau et ballons d'eau chaude.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="zone" id="zone">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Zone d'intervention</p>
+        <h2>On intervient près de chez vous</h2>
+      </div>
+      <div class="zone__list">
+        <span class="zone__chip">Carvin</span>
+        <span class="zone__chip">Lens</span>
+        <span class="zone__chip">Douai</span>
+        <span class="zone__chip">Arras</span>
+        <span class="zone__chip">Hénin-Beaumont</span>
+        <span class="zone__chip">Liévin</span>
+        <span class="zone__chip">Béthune</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-rapide" id="contact">
+    <div class="container">
+      <p class="section-tag">Contact rapide</p>
+      <h2>Une urgence ? Appelez-nous</h2>
+      <div class="contact-rapide__phone">📞 03 21 55 55 55</div>
+      <a href="tel:0321555555" class="btn btn--orange">Appeler maintenant</a>
+
+      <div class="contact__grid">
+        <div class="contact-item">
+          <div class="contact-item__icon">📍</div>
+          <h3>Secteur</h3>
+          <p>Carvin et environs<br>62220</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__icon">🕒</div>
+          <h3>Disponibilité</h3>
+          <p>24h/24, 7j/7</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__icon">✉️</div>
+          <h3>Email</h3>
+          <p>contact@plombier-express62.fr</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Plombier Express 62 — Site de démonstration réalisé par Nexa Web
+    </div>
+  </footer>
+
+  <a href="index.html#realisations" class="back-btn">⬅ Retour aux réalisations</a>
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boulangerie Dupont — Pain &amp; pâtisseries artisanales</title>
+<meta name="description" content="Boulangerie Dupont : pain de tradition, viennoiseries et pâtisseries artisanales. Démo de site réalisée par Nexa Web.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --primary: #6b4226;
+    --primary-dark: #3b2614;
+    --gold: #d4a857;
+    --bg: #fdf6ec;
+    --surface: #ffffff;
+    --text: #3b2614;
+    --text-muted: #7a5c3e;
+    --border: #e8d8bd;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+  }
+
+  .logo span { color: var(--gold); }
+
+  nav ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover { color: var(--primary); }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary) 60%, var(--gold));
+    color: #fff8ec;
+    padding: 110px 0 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '🥖';
+    position: absolute;
+    font-size: 14rem;
+    opacity: 0.12;
+    right: -30px;
+    bottom: -50px;
+    transform: rotate(-12deg);
+  }
+
+  .hero__tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .hero p {
+    max-width: 560px;
+    margin: 0 auto 32px;
+    font-size: 1.1rem;
+    opacity: 0.92;
+    position: relative;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn--gold {
+    background: var(--gold);
+    color: var(--primary-dark);
+    box-shadow: 0 8px 24px rgba(212, 168, 87, 0.4);
+  }
+
+  .btn--gold:hover { transform: translateY(-3px); }
+
+  /* Sections */
+  section { padding: 80px 0; }
+
+  .section-head {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 48px;
+  }
+
+  .section-tag {
+    color: var(--gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.82rem;
+    margin-bottom: 10px;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.8rem, 3vw, 2.3rem);
+    color: var(--primary-dark);
+  }
+
+  /* Spécialités */
+  .specialites__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .specialite-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 22px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .specialite-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(107, 66, 38, 0.12);
+  }
+
+  .specialite-card__emoji { font-size: 2.4rem; margin-bottom: 14px; }
+
+  .specialite-card h3 {
+    font-size: 1.1rem;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+  }
+
+  .specialite-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  /* Horaires */
+  .horaires {
+    background: var(--surface);
+  }
+
+  .horaires__table {
+    max-width: 560px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .horaires__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 28px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.98rem;
+  }
+
+  .horaires__row:last-child { border-bottom: none; }
+  .horaires__row:nth-child(even) { background: var(--bg); }
+
+  .horaires__day { font-weight: 700; color: var(--primary-dark); }
+  .horaires__hours { color: var(--text-muted); }
+  .horaires__closed { color: #b5483a; font-weight: 600; }
+
+  /* Contact */
+  .contact__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+
+  .contact-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 20px;
+  }
+
+  .contact-item__icon { font-size: 1.8rem; margin-bottom: 12px; }
+  .contact-item h3 { font-size: 1rem; color: var(--primary-dark); margin-bottom: 6px; }
+  .contact-item p { font-size: 0.92rem; color: var(--text-muted); }
+
+  /* Footer */
+  footer {
+    background: var(--primary-dark);
+    color: #e8d8bd;
+    text-align: center;
+    padding: 32px 0;
+    font-size: 0.85rem;
+  }
+
+  /* Back button */
+  .back-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--primary-dark);
+    color: #fff8ec;
+    padding: 13px 22px;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    z-index: 200;
+    transition: transform 0.2s ease;
+  }
+
+  .back-btn:hover { transform: translateY(-3px); }
+
+  @media (max-width: 760px) {
+    .header__inner { flex-direction: column; gap: 12px; }
+    .specialites__grid { grid-template-columns: repeat(2, 1fr); }
+    .contact__grid { grid-template-columns: 1fr; }
+    .hero { padding: 90px 0 70px; }
+    .back-btn { right: 16px; bottom: 16px; padding: 11px 18px; font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="header__inner">
+      <span class="logo">Boulangerie <span>Dupont</span></span>
+      <nav>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#specialites">Spécialités</a></li>
+          <li><a href="#horaires">Horaires</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="accueil">
+    <div class="container">
+      <span class="hero__tag">Boulangerie artisanale depuis 1987</span>
+      <h1>Le pain qui sent bon<br>comme autrefois</h1>
+      <p>Pain de tradition, viennoiseries et pâtisseries pétris et cuits chaque jour dans notre fournil, avec des farines locales et un savoir-faire transmis depuis trois générations.</p>
+      <a href="#specialites" class="btn btn--gold">Découvrir nos spécialités</a>
+    </div>
+  </section>
+
+  <section id="specialites">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Nos spécialités</p>
+        <h2>Fait maison, chaque matin</h2>
+      </div>
+      <div class="specialites__grid">
+        <article class="specialite-card">
+          <div class="specialite-card__emoji">🥖</div>
+          <h3>Pain de tradition</h3>
+          <p>Baguette, pain de campagne, pain aux céréales pétris à l'ancienne.</p>
+        </article>
+        <article class="specialite-card">
+          <div class="specialite-card__emoji">🥐</div>
+          <h3>Viennoiseries</h3>
+          <p>Croissants, pains au chocolat et chaussons feuilletés au beurre.</p>
+        </article>
+        <article class="specialite-card">
+          <div class="specialite-card__emoji">🍰</div>
+          <h3>Pâtisseries</h3>
+          <p>Tartes de saison, éclairs et entremets faits maison chaque jour.</p>
+        </article>
+        <article class="specialite-card">
+          <div class="specialite-card__emoji">🥪</div>
+          <h3>Sandwichs</h3>
+          <p>Sandwichs préparés sur notre pain frais, pour le midi sur le pouce.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="horaires" id="horaires">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Horaires d'ouverture</p>
+        <h2>Quand venir nous voir</h2>
+      </div>
+      <div class="horaires__table">
+        <div class="horaires__row"><span class="horaires__day">Lundi</span><span class="horaires__closed">Fermé</span></div>
+        <div class="horaires__row"><span class="horaires__day">Mardi — Vendredi</span><span class="horaires__hours">6h30 – 19h30</span></div>
+        <div class="horaires__row"><span class="horaires__day">Samedi</span><span class="horaires__hours">6h30 – 20h00</span></div>
+        <div class="horaires__row"><span class="horaires__day">Dimanche</span><span class="horaires__hours">7h00 – 13h00</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Contact</p>
+        <h2>Venez nous rendre visite</h2>
+      </div>
+      <div class="contact__grid">
+        <div class="contact-item">
+          <div class="contact-item__icon">📍</div>
+          <h3>Adresse</h3>
+          <p>12 rue des Artisans<br>62220 Carvin</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__icon">📞</div>
+          <h3>Téléphone</h3>
+          <p>03 21 00 00 00</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__icon">✉️</div>
+          <h3>Email</h3>
+          <p>contact@boulangerie-dupont.fr</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Boulangerie Dupont — Site de démonstration réalisé par Nexa Web
+    </div>
+  </footer>
+
+  <a href="index.html#realisations" class="back-btn">⬅ Retour aux réalisations</a>
+
+</body>
+</html>

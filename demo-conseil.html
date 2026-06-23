@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cabinet Leroy Conseil — Conseil aux entreprises</title>
+<meta name="description" content="Cabinet Leroy Conseil : stratégie, audit et accompagnement pour les entreprises. Démo de site réalisée par Nexa Web.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy: #1e3a5f;
+    --navy-dark: #0f1c2e;
+    --gold: #c9a227;
+    --bg: #0c1622;
+    --surface: #15233a;
+    --text: #e7edf5;
+    --text-muted: #93a3b8;
+    --border: #25364d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  h1, h2, h3 { font-family: 'Merriweather', serif; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; text-decoration: none; }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy-dark);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+  }
+
+  .logo { font-family: 'Merriweather', serif; font-size: 1.25rem; font-weight: 700; }
+  .logo span { color: var(--gold); }
+
+  nav ul { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+
+  nav a {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover { color: var(--gold); }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--navy-dark), var(--navy) 70%);
+    padding: 120px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 360px;
+    height: 360px;
+    border: 1px solid rgba(201, 162, 39, 0.25);
+    border-radius: 50%;
+  }
+
+  .hero__tag {
+    position: relative;
+    display: inline-block;
+    color: var(--gold);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    position: relative;
+    font-size: clamp(2rem, 4.5vw, 2.9rem);
+    max-width: 680px;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .hero p {
+    position: relative;
+    max-width: 540px;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 32px;
+  }
+
+  .btn {
+    position: relative;
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn--gold {
+    background: var(--gold);
+    color: var(--navy-dark);
+    box-shadow: 0 8px 24px rgba(201, 162, 39, 0.3);
+  }
+
+  .btn--gold:hover { transform: translateY(-3px); }
+
+  section { padding: 80px 0; }
+
+  .section-head { text-align: center; max-width: 620px; margin: 0 auto 48px; }
+
+  .section-tag {
+    color: var(--gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.78rem;
+    margin-bottom: 10px;
+  }
+
+  .section-head h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); }
+
+  /* Services */
+  .services__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 30px 22px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .service-card:hover { transform: translateY(-6px); border-color: var(--gold); }
+  .service-card__icon { font-size: 1.8rem; margin-bottom: 14px; }
+  .service-card h3 { font-size: 1.02rem; margin-bottom: 8px; }
+  .service-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+  /* Expertise (stats) */
+  .expertise { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    text-align: center;
+  }
+
+  .stat__number {
+    font-family: 'Merriweather', serif;
+    font-size: 2.6rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .stat__label { color: var(--text-muted); font-size: 0.92rem; }
+
+  /* Témoignages */
+  .temoignages__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+  .temoignage-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 24px;
+  }
+
+  .temoignage-card__stars { color: var(--gold); margin-bottom: 12px; letter-spacing: 2px; }
+  .temoignage-card p { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px; }
+  .temoignage-card__author { font-weight: 600; font-size: 0.9rem; }
+  .temoignage-card__role { font-size: 0.82rem; color: var(--text-muted); }
+
+  /* Contact */
+  .contact__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center; }
+
+  .contact-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 30px 18px;
+  }
+
+  .contact-item__icon { font-size: 1.6rem; margin-bottom: 10px; }
+  .contact-item h3 { font-size: 0.95rem; margin-bottom: 6px; }
+  .contact-item p { font-size: 0.88rem; color: var(--text-muted); }
+
+  footer {
+    background: var(--navy-dark);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.85rem;
+  }
+
+  .back-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--gold);
+    color: var(--navy-dark);
+    padding: 13px 22px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    z-index: 200;
+    transition: transform 0.2s ease;
+  }
+
+  .back-btn:hover { transform: translateY(-3px); }
+
+  @media (max-width: 760px) {
+    .header__inner { flex-direction: column; gap: 12px; }
+    .services__grid { grid-template-columns: repeat(2, 1fr); }
+    .stats__grid { grid-template-columns: 1fr; gap: 24px; }
+    .temoignages__grid { grid-template-columns: 1fr; }
+    .contact__grid { grid-template-columns: 1fr; }
+    .back-btn { right: 16px; bottom: 16px; padding: 11px 18px; font-size: 0.78rem; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="header__inner">
+      <span class="logo">Cabinet <span>Leroy Conseil</span></span>
+      <nav>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#temoignages">Témoignages</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="accueil">
+    <div class="container">
+      <span class="hero__tag">Cabinet de conseil aux entreprises</span>
+      <h1>Un accompagnement stratégique pour faire grandir votre entreprise</h1>
+      <p>Conseil en stratégie, audit financier et accompagnement juridique : nous aidons les dirigeants à prendre des décisions éclairées et durables.</p>
+      <a href="#contact" class="btn btn--gold">Demander un rendez-vous</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Nos services</p>
+        <h2>Une expertise à chaque étape</h2>
+      </div>
+      <div class="services__grid">
+        <article class="service-card">
+          <div class="service-card__icon">📊</div>
+          <h3>Conseil financier</h3>
+          <p>Analyse financière et optimisation de la rentabilité de votre activité.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon">🧭</div>
+          <h3>Stratégie d'entreprise</h3>
+          <p>Définition d'une vision claire et d'un plan d'action concret.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon">🔍</div>
+          <h3>Audit</h3>
+          <p>Diagnostic complet de votre organisation et de vos processus.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon">⚖️</div>
+          <h3>Accompagnement juridique</h3>
+          <p>Sécurisation juridique de vos décisions et de vos contrats.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="expertise" id="expertise">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Notre expertise</p>
+        <h2>Des résultats qui parlent</h2>
+      </div>
+      <div class="stats__grid">
+        <div>
+          <div class="stat__number">15 ans</div>
+          <div class="stat__label">d'expérience en conseil aux entreprises</div>
+        </div>
+        <div>
+          <div class="stat__number">200+</div>
+          <div class="stat__label">clients accompagnés avec succès</div>
+        </div>
+        <div>
+          <div class="stat__number">98 %</div>
+          <div class="stat__label">de clients satisfaits</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="temoignages">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Témoignages</p>
+        <h2>Ce que disent nos clients</h2>
+      </div>
+      <div class="temoignages__grid">
+        <article class="temoignage-card">
+          <div class="temoignage-card__stars">★★★★★</div>
+          <p>« Un accompagnement précieux pour structurer notre développement. Des conseils clairs et applicables immédiatement. »</p>
+          <div class="temoignage-card__author">Sophie Bernard</div>
+          <div class="temoignage-card__role">Dirigeante, PME industrielle</div>
+        </article>
+        <article class="temoignage-card">
+          <div class="temoignage-card__stars">★★★★★</div>
+          <p>« Le cabinet Leroy a su identifier nos points faibles et nous proposer un plan d'action réaliste. Résultats visibles en quelques mois. »</p>
+          <div class="temoignage-card__author">Marc Vidal</div>
+          <div class="temoignage-card__role">Directeur général</div>
+        </article>
+        <article class="temoignage-card">
+          <div class="temoignage-card__stars">★★★★★</div>
+          <p>« Professionnalisme et écoute. Ils comprennent vraiment les enjeux des petites entreprises. »</p>
+          <div class="temoignage-card__author">Claire Petit</div>
+          <div class="temoignage-card__role">Fondatrice, cabinet comptable</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Contact</p>
+        <h2>Parlons de votre entreprise</h2>
+      </div>
+      <div class="contact__grid">
+        <div class="contact-item">
+          <div class="contact-item__icon">📍</div>
+          <h3>Adresse</h3>
+          <p>22 place de la République<br>62220 Carvin</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__icon">📞</div>
+          <h3>Téléphone</h3>
+          <p>03 21 33 33 33</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__icon">✉️</div>
+          <h3>Email</h3>
+          <p>contact@leroy-conseil.fr</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Cabinet Leroy Conseil — Site de démonstration réalisé par Nexa Web
+    </div>
+  </footer>
+
+  <a href="index.html#realisations" class="back-btn">⬅ Retour aux réalisations</a>
+
+</body>
+</html>

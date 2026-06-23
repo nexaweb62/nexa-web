@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant Le Terroir — Cuisine de saison</title>
+<meta name="description" content="Restaurant Le Terroir : une cuisine du terroir avec des produits de saison. Démo de site réalisée par Nexa Web.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --green: #2d4a2b;
+    --green-dark: #1b2a1d;
+    --terracotta: #c97b4a;
+    --beige: #f5f0e6;
+    --surface: #ffffff;
+    --text: #2c2620;
+    --text-muted: #6f6555;
+    --border: #e6ddc8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: var(--beige);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  h1, h2, h3 { font-family: 'Lora', serif; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; text-decoration: none; }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+  }
+
+  .logo { font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 700; color: var(--green-dark); }
+  .logo span { color: var(--terracotta); }
+
+  nav ul { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+
+  nav a {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover { color: var(--green); }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--green-dark), var(--green) 75%);
+    color: #f5f0e6;
+    padding: 120px 0 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '🌿';
+    position: absolute;
+    font-size: 12rem;
+    opacity: 0.1;
+    left: -40px;
+    top: -30px;
+  }
+
+  .hero__tag {
+    position: relative;
+    display: inline-block;
+    background: rgba(245, 240, 230, 0.12);
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    position: relative;
+    font-size: clamp(2.2rem, 5vw, 3.1rem);
+    margin-bottom: 18px;
+  }
+
+  .hero p {
+    position: relative;
+    max-width: 560px;
+    margin: 0 auto 32px;
+    opacity: 0.92;
+    font-size: 1.08rem;
+  }
+
+  .btn {
+    position: relative;
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn--terracotta {
+    background: var(--terracotta);
+    color: #fff8f0;
+    box-shadow: 0 10px 26px rgba(201, 123, 74, 0.4);
+  }
+
+  .btn--terracotta:hover { transform: translateY(-3px); }
+
+  section { padding: 80px 0; }
+
+  .section-head { text-align: center; max-width: 600px; margin: 0 auto 48px; }
+
+  .section-tag {
+    color: var(--terracotta);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+
+  .section-head h2 { font-size: clamp(1.8rem, 3vw, 2.3rem); color: var(--green-dark); }
+
+  /* Menu du jour */
+  .menu { background: var(--surface); }
+
+  .menu__list { max-width: 620px; margin: 0 auto; }
+
+  .menu__category {
+    font-family: 'Lora', serif;
+    color: var(--terracotta);
+    font-size: 1.05rem;
+    margin: 28px 0 14px;
+  }
+
+  .menu__category:first-child { margin-top: 0; }
+
+  .menu__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px dotted var(--border);
+  }
+
+  .menu__row span:first-child { font-weight: 600; }
+  .menu__row span:last-child { color: var(--terracotta); font-weight: 700; }
+
+  /* Histoire */
+  .histoire__inner {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .histoire__visual {
+    height: 280px;
+    border-radius: 16px;
+    background: linear-gradient(150deg, var(--terracotta), var(--green));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5rem;
+  }
+
+  .histoire__text p { color: var(--text-muted); margin-bottom: 14px; }
+
+  /* Réservation */
+  .reservation {
+    text-align: center;
+    background: linear-gradient(135deg, var(--green-dark), var(--green));
+    color: #f5f0e6;
+  }
+
+  .reservation h2 { color: #f5f0e6; }
+  .reservation p { color: rgba(245,240,230,0.85); max-width: 480px; margin: 0 auto 28px; }
+
+  /* Contact */
+  .contact__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; text-align: center; }
+
+  .contact-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px 20px;
+  }
+
+  .contact-item__icon { font-size: 1.7rem; margin-bottom: 10px; }
+  .contact-item h3 { font-size: 1rem; margin-bottom: 6px; color: var(--green-dark); }
+  .contact-item p { font-size: 0.9rem; color: var(--text-muted); }
+
+  footer {
+    background: var(--green-dark);
+    color: #d8d2c2;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.85rem;
+  }
+
+  .back-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--terracotta);
+    color: #fff8f0;
+    padding: 13px 22px;
+    border-radius: 999px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
+    z-index: 200;
+    transition: transform 0.2s ease;
+  }
+
+  .back-btn:hover { transform: translateY(-3px); }
+
+  @media (max-width: 760px) {
+    .header__inner { flex-direction: column; gap: 12px; }
+    .histoire__inner { grid-template-columns: 1fr; }
+    .histoire__visual { height: 180px; }
+    .contact__grid { grid-template-columns: 1fr; }
+    .back-btn { right: 16px; bottom: 16px; padding: 11px 18px; font-size: 0.78rem; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="header__inner">
+      <span class="logo">Restaurant <span>Le Terroir</span></span>
+      <nav>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#menu">Menu du jour</a></li>
+          <li><a href="#histoire">Notre histoire</a></li>
+          <li><a href="#reservation">Réservation</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="accueil">
+    <div class="container">
+      <span class="hero__tag">Cuisine du terroir &amp; produits de saison</span>
+      <h1>Une cuisine généreuse, ancrée dans son terroir</h1>
+      <p>Des produits locaux et de saison, cuisinés avec passion par notre chef, dans une ambiance chaleureuse et conviviale.</p>
+      <a href="#menu" class="btn btn--terracotta">Découvrir le menu</a>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Menu du jour</p>
+        <h2>La carte de la semaine</h2>
+      </div>
+      <div class="menu__list">
+        <p class="menu__category">Entrées</p>
+        <div class="menu__row"><span>Velouté de potimarron, crème montée</span><span>9 €</span></div>
+        <div class="menu__row"><span>Terrine de campagne maison, pickles</span><span>10 €</span></div>
+
+        <p class="menu__category">Plats</p>
+        <div class="menu__row"><span>Joue de bœuf braisée, purée de panais</span><span>21 €</span></div>
+        <div class="menu__row"><span>Filet de poisson du jour, légumes de saison</span><span>22 €</span></div>
+
+        <p class="menu__category">Desserts</p>
+        <div class="menu__row"><span>Tarte fine aux pommes, glace vanille</span><span>8 €</span></div>
+        <div class="menu__row"><span>Fondant au chocolat, cœur coulant</span><span>8 €</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="histoire">
+    <div class="container histoire__inner">
+      <div class="histoire__visual">🍽️</div>
+      <div class="histoire__text">
+        <p class="section-tag">Notre histoire</p>
+        <h2 style="margin-bottom:18px;">Une passion familiale depuis trois générations</h2>
+        <p>Le Terroir est né de la passion d'une famille pour la cuisine authentique et les produits locaux. De la ferme à l'assiette, nous travaillons avec des producteurs de la région pour vous proposer une cuisine sincère, qui change au fil des saisons.</p>
+        <p>Chaque plat raconte une histoire : celle d'un savoir-faire transmis, et celle d'un terroir que nous sommes fiers de mettre en valeur.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reservation" id="reservation">
+    <div class="container">
+      <p class="section-tag" style="color:#e8c7a8;">Réservation</p>
+      <h2>Réservez votre table</h2>
+      <p>Le Terroir vous accueille du mardi au dimanche, midi et soir. Réservation recommandée le week-end.</p>
+      <a href="#contact" class="btn btn--terracotta">Réserver une table</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Contact</p>
+        <h2>Venez à notre table</h2>
+      </div>
+      <div class="contact__grid">
+        <div class="contact-item">
+          <div class="contact-item__icon">📍</div>
+          <h3>Adresse</h3>
+          <p>3 place du Marché<br>62220 Carvin</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__icon">📞</div>
+          <h3>Téléphone</h3>
+          <p>03 21 44 44 44</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__icon">🕒</div>
+          <h3>Horaires</h3>
+          <p>Mar – Dim : 12h–14h / 19h–22h</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Restaurant Le Terroir — Site de démonstration réalisé par Nexa Web
+    </div>
+  </footer>
+
+  <a href="index.html#realisations" class="back-btn">⬅ Retour aux réalisations</a>
+
+</body>
+</html>

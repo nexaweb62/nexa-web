@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Institut Beauté Zen — Soins &amp; bien-être</title>
+<meta name="description" content="Institut Beauté Zen : soins du visage, massages et manucure dans un cadre apaisant. Démo de site réalisée par Nexa Web.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --pink: #ec4899;
+    --mauve: #a855f7;
+    --rose-deep: #831843;
+    --bg: #fff5f8;
+    --surface: #ffffff;
+    --text: #4a1942;
+    --text-muted: #9a7b94;
+    --border: #f4d9e6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; text-decoration: none; }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 245, 248, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--rose-deep);
+    letter-spacing: 0.02em;
+  }
+
+  .logo span { color: var(--mauve); }
+
+  nav ul { display: flex; gap: 30px; list-style: none; flex-wrap: wrap; }
+
+  nav a {
+    font-size: 0.88rem;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover { color: var(--pink); }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 130px 0 110px;
+    background: linear-gradient(160deg, #fde6f0 0%, #f3def7 55%, #e9d3fb 100%);
+  }
+
+  .hero__blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.5;
+  }
+
+  .hero__blob--1 { width: 320px; height: 320px; background: var(--pink); top: -120px; left: -80px; }
+  .hero__blob--2 { width: 260px; height: 260px; background: var(--mauve); bottom: -100px; right: -60px; }
+
+  .hero__tag {
+    position: relative;
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rose-deep);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    position: relative;
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    color: var(--rose-deep);
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    position: relative;
+    max-width: 540px;
+    margin: 0 auto 34px;
+    color: #7a4f72;
+    font-size: 1.05rem;
+  }
+
+  .btn {
+    position: relative;
+    display: inline-block;
+    padding: 14px 34px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 0.92rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn--pink {
+    background: linear-gradient(120deg, var(--pink), var(--mauve));
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(236, 72, 153, 0.35);
+  }
+
+  .btn--pink:hover { transform: translateY(-3px); }
+
+  section { padding: 80px 0; }
+
+  .section-head { text-align: center; max-width: 600px; margin: 0 auto 48px; }
+
+  .section-tag {
+    color: var(--pink);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.78rem;
+    margin-bottom: 10px;
+  }
+
+  .section-head h2 { font-size: clamp(1.9rem, 3vw, 2.4rem); color: var(--rose-deep); }
+
+  /* Prestations */
+  .prestations__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+
+  .prestation-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .prestation-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(236, 72, 153, 0.15);
+  }
+
+  .prestation-card__icon { font-size: 2.1rem; margin-bottom: 14px; }
+  .prestation-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+  .prestation-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+  /* Tarifs */
+  .tarifs { background: var(--surface); }
+
+  .tarifs__list { max-width: 600px; margin: 0 auto; }
+
+  .tarifs__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 18px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .tarifs__row:last-child { border-bottom: none; }
+  .tarifs__name { font-size: 1.02rem; }
+  .tarifs__name small { display: block; color: var(--text-muted); font-size: 0.82rem; margin-top: 2px; }
+  .tarifs__price { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--pink); }
+
+  /* Réservation */
+  .reservation {
+    text-align: center;
+    background: linear-gradient(120deg, var(--rose-deep), var(--mauve));
+    color: #fff;
+  }
+
+  .reservation h2 { color: #fff; }
+  .reservation p { color: rgba(255,255,255,0.85); max-width: 480px; margin: 0 auto 28px; }
+
+  .btn--white {
+    background: #fff;
+    color: var(--rose-deep);
+  }
+
+  /* Contact */
+  .contact__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; text-align: center; }
+
+  .contact-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px 20px;
+  }
+
+  .contact-item__icon { font-size: 1.7rem; margin-bottom: 10px; }
+  .contact-item h3 { font-size: 1.05rem; margin-bottom: 6px; }
+  .contact-item p { font-size: 0.9rem; color: var(--text-muted); }
+
+  footer {
+    background: var(--rose-deep);
+    color: #f4d9e6;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.85rem;
+  }
+
+  .back-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: linear-gradient(120deg, var(--pink), var(--mauve));
+    color: #fff;
+    padding: 13px 22px;
+    border-radius: 999px;
+    font-size: 0.86rem;
+    font-weight: 500;
+    box-shadow: 0 10px 26px rgba(168, 85, 247, 0.4);
+    z-index: 200;
+    transition: transform 0.2s ease;
+  }
+
+  .back-btn:hover { transform: translateY(-3px); }
+
+  @media (max-width: 760px) {
+    .header__inner { flex-direction: column; gap: 12px; }
+    .prestations__grid { grid-template-columns: repeat(2, 1fr); }
+    .contact__grid { grid-template-columns: 1fr; }
+    .hero { padding: 100px 0 80px; }
+    .back-btn { right: 16px; bottom: 16px; padding: 11px 18px; font-size: 0.78rem; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="header__inner">
+      <span class="logo">Institut <span>Beauté Zen</span></span>
+      <nav>
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#prestations">Prestations</a></li>
+          <li><a href="#tarifs">Tarifs</a></li>
+          <li><a href="#reservation">Réservation</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="accueil">
+    <span class="hero__blob hero__blob--1"></span>
+    <span class="hero__blob hero__blob--2"></span>
+    <div class="container">
+      <span class="hero__tag">Institut de beauté &amp; bien-être</span>
+      <h1>Prenez soin de vous,<br>sublimez votre beauté</h1>
+      <p>Soins du visage, massages relaxants et manucure dans un cadre apaisant, pensé pour vous offrir une parenthèse de douceur.</p>
+      <a href="#reservation" class="btn btn--pink">Réserver un soin</a>
+    </div>
+  </section>
+
+  <section id="prestations">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Nos prestations</p>
+        <h2>Des soins pour chaque besoin</h2>
+      </div>
+      <div class="prestations__grid">
+        <article class="prestation-card">
+          <div class="prestation-card__icon">🧖‍♀️</div>
+          <h3>Soins du visage</h3>
+          <p>Nettoyage, hydratation et éclat pour une peau resplendissante.</p>
+        </article>
+        <article class="prestation-card">
+          <div class="prestation-card__icon">💆‍♀️</div>
+          <h3>Massages</h3>
+          <p>Massages relaxants ou californiens pour relâcher les tensions.</p>
+        </article>
+        <article class="prestation-card">
+          <div class="prestation-card__icon">💅</div>
+          <h3>Manucure</h3>
+          <p>Pose de vernis semi-permanent et soin complet des mains.</p>
+        </article>
+        <article class="prestation-card">
+          <div class="prestation-card__icon">✨</div>
+          <h3>Épilation</h3>
+          <p>Épilation douce à la cire pour une peau parfaitement lisse.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="tarifs" id="tarifs">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Tarifs</p>
+        <h2>Des prix transparents</h2>
+      </div>
+      <div class="tarifs__list">
+        <div class="tarifs__row">
+          <span class="tarifs__name">Soin du visage<small>45 minutes</small></span>
+          <span class="tarifs__price">55 €</span>
+        </div>
+        <div class="tarifs__row">
+          <span class="tarifs__name">Massage relaxant<small>1 heure</small></span>
+          <span class="tarifs__price">70 €</span>
+        </div>
+        <div class="tarifs__row">
+          <span class="tarifs__name">Manucure semi-permanent<small>45 minutes</small></span>
+          <span class="tarifs__price">38 €</span>
+        </div>
+        <div class="tarifs__row">
+          <span class="tarifs__name">Épilation jambes complètes<small>30 minutes</small></span>
+          <span class="tarifs__price">32 €</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reservation" id="reservation">
+    <div class="container">
+      <p class="section-tag" style="color:#fbe4f0;">Réservation</p>
+      <h2>Offrez-vous un moment pour vous</h2>
+      <p>Réservez votre créneau en ligne ou par téléphone, notre équipe vous accueille du mardi au samedi.</p>
+      <a href="#contact" class="btn btn--white">Prendre rendez-vous</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-tag">Contact</p>
+        <h2>Nous trouver</h2>
+      </div>
+      <div class="contact__grid">
+        <div class="contact-item">
+          <div class="contact-item__icon">📍</div>
+          <h3>Adresse</h3>
+          <p>8 rue des Lilas<br>62220 Carvin</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__icon">📞</div>
+          <h3>Téléphone</h3>
+          <p>03 21 22 22 22</p>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item__icon">🕒</div>
+          <h3>Horaires</h3>
+          <p>Mar – Sam : 9h30 – 19h</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Institut Beauté Zen — Site de démonstration réalisé par Nexa Web
+    </div>
+  </footer>
+
+  <a href="index.html#realisations" class="back-btn">⬅ Retour aux réalisations</a>
+
+</body>
+</html>

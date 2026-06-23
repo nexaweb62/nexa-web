@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Nexa Web - Création de sites internet pour TPE/PME </title>
+  <meta name="description" content="Nexa Web conçoit des sites internet modernes pour les artisans, commerces et petites entreprises. Site vitrine, e-commerce, refonte et SEO. Devis gratuit, intervention à Carvin et partout en France.">
+  <meta name="keywords" content="création site internet, site vitrine, site e-commerce, refonte site web, SEO, Carvin, Hauts-de-France, TPE, PME, artisan">
+  <meta name="author" content="Nexa Web">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nexa Web - Votre entreprise mérite un site qui lui ressemble">
+  <meta property="og:description" content="Création de sites internet sur-mesure pour les TPE/PME. Devis gratuit.">
+  <meta property="og:type" content="website">
+
+  <!-- Polices Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===================== TOPBAR ===================== -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <a href="https://www.google.com/maps/search/Carvin,+Hauts-de-France" target="_blank" rel="noopener noreferrer" class="topbar__location">📍 <span data-i18n="footer.address">Carvin, Hauts-de-France</span></a>
+      <span class="topbar__phones">
+        📞 <a href="tel:0698840194" class="topbar__phone">06 98 84 01 94</a>
+        <span class="topbar__sep">|</span>
+        <a href="tel:0641467898" class="topbar__phone">06 41 46 78 98</a>
+        <span class="topbar__email-wrap">
+          <span class="topbar__sep">|</span>
+          <a href="mailto:contact.nexaweb62@gmail.com" class="topbar__phone" id="topbar-email-link">✉️ contact.nexaweb62@gmail.com</a>
+        </span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ===================== HEADER / NAVIGATION ===================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+
+      <a href="#accueil" class="logo" aria-label="Nexa Web - Accueil">
+        Nexa<span class="logo__accent">Web</span>
+      </a>
+
+      <!-- Navigation desktop -->
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="#accueil" class="nav__link" data-i18n="nav.home">Accueil</a></li>
+          <li><a href="#services" class="nav__link" data-i18n="nav.services">Services</a></li>
+          <li><a href="rendez-vous.html" class="nav__link" data-i18n="nav.appointment">Rendez-vous</a></li>
+          <li><a href="#pourquoi-nous" class="nav__link" data-i18n="nav.why">Pourquoi nous</a></li>
+          <li><a href="#realisations" class="nav__link" data-i18n="nav.projects">Réalisations</a></li>
+          <li><a href="#avis" class="nav__link" data-i18n="nav.reviews">Avis</a></li>
+          <li><a href="tarifs.html" class="nav__link" data-i18n="nav.pricing">Tarifs</a></li>
+          <li><a href="contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Switch to English">
+          <span class="lang-toggle__flag" aria-hidden="true">🇫🇷</span>
+          <span class="lang-toggle__code">FR</span>
+        </button>
+
+        <button class="theme-toggle" id="theme-toggle" aria-label="Activer le mode clair">
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="M4.93 4.93l1.41 1.41"></path>
+            <path d="M17.66 17.66l1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="M6.34 17.66l-1.41 1.41"></path>
+            <path d="M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+        </button>
+
+        <a href="devis.html" class="btn btn--primary btn--header" data-i18n="header.quoteBtn">Devis gratuit</a>
+      </div>
+
+      <!-- Bouton burger mobile -->
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== HERO SECTION ===================== -->
+    <section class="hero" id="accueil">
+      <!-- Effet de glow en arrière-plan -->
+      <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <p class="hero__tag fade-in" data-i18n="hero.tag">Création de sites internet pour TPE/PME</p>
+
+        <h1 class="hero__title fade-in">
+          <span data-i18n="hero.titlePart1">Votre entreprise mérite un site qui lui </span><span class="text-accent" data-i18n="hero.titleAccent">ressemble</span>
+        </h1>
+
+        <p class="hero__subtitle fade-in" data-i18n="hero.subtitle">
+          Nexa Web conçoit des sites internet modernes, rapides et sur-mesure pour les artisans,
+          commerçants et petites entreprises — basé à Carvin, à votre service partout en France.
+        </p>
+
+        <div class="hero__actions fade-in">
+          <a href="devis.html" class="btn btn--primary btn--lg" data-i18n="hero.btnQuote">Demander un devis gratuit</a>
+          <a href="#realisations" class="btn btn--ghost btn--lg" data-i18n="hero.btnProjects">Voir nos réalisations</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ENGAGEMENTS (TIMELINE) ===================== -->
+    <section class="engagements" id="engagements">
+      <div class="container">
+        <h2 class="engagements__title fade-in" data-i18n="engagements.title">J'applique 4 engagements à votre projet web</h2>
+
+        <div class="engagements__timeline">
+
+          <div class="engagements__item engagements__item--right fade-in">
+            <span class="engagements__dot" aria-hidden="true"></span>
+            <div class="engagements__content">
+              <h3 class="engagements__item-title" data-i18n="engagements.item1.title">Rapidité</h3>
+              <p class="engagements__item-text" data-i18n="engagements.item1.text">
+                Votre site livré en 5 à 15 jours selon la formule. Pas de délais interminables, on respecte les deadlines.
+              </p>
+            </div>
+          </div>
+
+          <div class="engagements__item engagements__item--left fade-in">
+            <span class="engagements__dot" aria-hidden="true"></span>
+            <div class="engagements__content">
+              <h3 class="engagements__item-title" data-i18n="engagements.item2.title">Rentabilité</h3>
+              <p class="engagements__item-text" data-i18n="engagements.item2.text">
+                Investir dans un site Nexa Web c'est investir dans votre chiffre d'affaires. Je conçois des outils qui génèrent des demandes de devis et transforment vos visiteurs en clients.
+              </p>
+            </div>
+          </div>
+
+          <div class="engagements__item engagements__item--right fade-in">
+            <span class="engagements__dot" aria-hidden="true"></span>
+            <div class="engagements__content">
+              <h3 class="engagements__item-title" data-i18n="engagements.item3.title">Visibilité</h3>
+              <p class="engagements__item-text" data-i18n="engagements.item3.text">
+                Être sur internet ne suffit pas : encore faut-il être trouvé. J'optimise votre référencement local (SEO) pour que vous apparaissiez en première page sur Google.
+              </p>
+            </div>
+          </div>
+
+          <div class="engagements__item engagements__item--left fade-in">
+            <span class="engagements__dot" aria-hidden="true"></span>
+            <div class="engagements__content">
+              <h3 class="engagements__item-title" data-i18n="engagements.item4.title">Sur-mesure</h3>
+              <p class="engagements__item-text" data-i18n="engagements.item4.text">
+                Chaque secteur a ses codes et ses clients. Je ne vends pas de templates génériques. Je construis votre site en fonction de votre business.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICES SECTION ===================== -->
+    <section class="services" id="services">
+      <div class="container">
+
+        <div class="section-head fade-in">
+          <p class="section-tag" data-i18n="services.tag">Nos services</p>
+          <h2 class="section-title" data-i18n="services.title">Des solutions web adaptées à votre activité</h2>
+          <p class="section-subtitle" data-i18n="services.subtitle">
+            Du premier site internet à la refonte complète, Nexa Web vous accompagne avec une offre
+            claire et adaptée aux besoins des petites entreprises.
+          </p>
+        </div>
+
+        <div class="services__grid">
+
+          <!-- Carte 1 : Site vitrine -->
+          <article class="service-card fade-in">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="14" rx="2"></rect>
+                <path d="M3 9h18"></path>
+                <path d="M7 14h6"></path>
+              </svg>
+            </div>
+            <h3 class="service-card__title" data-i18n="services.card1.title">Site vitrine</h3>
+            <p class="service-card__text" data-i18n="services.card1.text">
+              Un site clair et professionnel pour présenter votre activité, vos services et vos
+              coordonnées, et donner confiance à vos visiteurs.
+            </p>
+          </article>
+
+          <!-- Carte 2 : Site e-commerce -->
+          <article class="service-card fade-in">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="20" r="1.4"></circle>
+                <circle cx="18" cy="20" r="1.4"></circle>
+                <path d="M2 3h2.2l2.2 12.4a2 2 0 0 0 2 1.6h9.1a2 2 0 0 0 2-1.6L21 7H6"></path>
+              </svg>
+            </div>
+            <h3 class="service-card__title" data-i18n="services.card2.title">Site e-commerce</h3>
+            <p class="service-card__text" data-i18n="services.card2.text">
+              Une boutique en ligne simple à gérer, sécurisée et pensée pour convertir vos visiteurs
+              en clients, où que vous soyez basé.
+            </p>
+          </article>
+
+          <!-- Carte 3 : Refonte de site existant -->
+          <article class="service-card fade-in">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 1 0 3-6.7"></path>
+                <path d="M3 4v5h5"></path>
+              </svg>
+            </div>
+            <h3 class="service-card__title" data-i18n="services.card3.title">Refonte de site existant</h3>
+            <p class="service-card__text" data-i18n="services.card3.text">
+              Votre site est dépassé ou peu efficace ? On le modernise : design actuel, vitesse de
+              chargement et expérience mobile optimisée.
+            </p>
+          </article>
+
+          <!-- Carte 4 : SEO / Visibilité Google -->
+          <article class="service-card fade-in">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="M21 21l-4.3-4.3"></path>
+              </svg>
+            </div>
+            <h3 class="service-card__title" data-i18n="services.card4.title">Référencement SEO</h3>
+            <p class="service-card__text" data-i18n="services.card4.text">
+              Une structure et un contenu optimisés pour être mieux référencé sur Google et être
+              trouvé par de nouveaux clients près de chez vous.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== POURQUOI NEXA WEB ===================== -->
+    <section class="why" id="pourquoi-nous">
+      <!-- Effet de glow en arrière-plan -->
+      <div class="why__glow" aria-hidden="true"></div>
+
+      <div class="container">
+
+        <div class="section-head fade-in">
+          <p class="section-tag" data-i18n="why.tag">Pourquoi nous</p>
+          <h2 class="section-title" data-i18n="why.title">Une jeune agence, des engagements clairs</h2>
+          <p class="section-subtitle" data-i18n="why.subtitle">
+            Pas de jargon ni de promesses creuses : juste un travail sérieux, transparent et
+            taillé pour les besoins des petites structures.
+          </p>
+        </div>
+
+        <div class="why__grid">
+
+          <!-- Bloc 1 : Rapidité -->
+          <article class="why-card fade-in">
+            <div class="why-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"></path>
+              </svg>
+            </div>
+            <h3 class="why-card__title" data-i18n="why.card1.title">Rapidité de livraison</h3>
+            <p class="why-card__text" data-i18n="why.card1.text">
+              Votre site en quelques jours à quelques semaines selon le projet, sans sacrifier la
+              qualité ni le soin du détail.
+            </p>
+          </article>
+
+          <!-- Bloc 2 : Tarifs adaptés -->
+          <article class="why-card fade-in">
+            <div class="why-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20"></path>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <h3 class="why-card__title" data-i18n="why.card2.title">Tarifs adaptés</h3>
+            <p class="why-card__text" data-i18n="why.card2.text">
+              Des formules pensées pour le budget réel des artisans, commerces et petites
+              entreprises, sans coûts cachés.
+            </p>
+          </article>
+
+          <!-- Bloc 3 : Accompagnement personnalisé -->
+          <article class="why-card fade-in">
+            <div class="why-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="3.2"></circle>
+                <path d="M5 20c0-3.5 3.1-6 7-6s7 2.5 7 6"></path>
+              </svg>
+            </div>
+            <h3 class="why-card__title" data-i18n="why.card3.title">Accompagnement personnalisé</h3>
+            <p class="why-card__text" data-i18n="why.card3.text">
+              Un interlocuteur unique à chaque étape, qui prend le temps de comprendre votre
+              activité et vos besoins réels.
+            </p>
+          </article>
+
+          <!-- Bloc 4 : Design moderne sur-mesure -->
+          <article class="why-card fade-in">
+            <div class="why-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 21v-4.8L16.2 4a2 2 0 0 1 2.8 0l1.8 1.8a2 2 0 0 1 0 2.8L8.8 21H4z"></path>
+                <path d="M14.5 6.5l3 3"></path>
+              </svg>
+            </div>
+            <h3 class="why-card__title" data-i18n="why.card4.title">Design moderne sur-mesure</h3>
+            <p class="why-card__text" data-i18n="why.card4.text">
+              Chaque site est conçu spécifiquement pour votre image de marque, pas à partir d'un
+              modèle générique.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RÉALISATIONS / PORTFOLIO ===================== -->
+    <section class="portfolio" id="realisations">
+      <div class="container">
+
+        <div class="section-head fade-in">
+          <p class="section-tag" data-i18n="portfolio.tag">Réalisations</p>
+          <h2 class="section-title" data-i18n="portfolio.title">Quelques exemples de projets</h2>
+          <p class="section-subtitle" data-i18n="portfolio.subtitle">
+            Activité encore jeune : voici des exemples représentatifs du type de sites que nous
+            réalisons. Nos vrais projets clients viendront enrichir cette galerie.
+          </p>
+        </div>
+
+        <div class="portfolio__grid">
+
+          <!-- Projet 1 : Boulangerie Dupont -->
+          <article class="portfolio-card fade-in">
+            <div class="portfolio-card__visual portfolio-mockup portfolio-mockup--bakery">
+              <span class="portfolio-card__badge" data-i18n="portfolio.card1.badge">Site vitrine</span>
+              <div class="portfolio-mockup__browser">
+                <div class="portfolio-mockup__bar"><span></span><span></span><span></span></div>
+                <div class="portfolio-mockup__hero"></div>
+                <div class="portfolio-mockup__lines"><span></span><span></span><span></span></div>
+                <div class="portfolio-mockup__button"></div>
+              </div>
+            </div>
+            <div class="portfolio-card__body">
+              <h3 class="portfolio-card__title">Boulangerie Dupont</h3>
+              <p class="portfolio-card__sector" data-i18n="portfolio.card1.sector">Boulangerie artisanale</p>
+              <a href="demo-boulangerie.html" target="_blank" rel="noopener noreferrer" class="portfolio-card__link" data-i18n="portfolio.link">Voir le projet →</a>
+            </div>
+          </article>
+
+          <!-- Projet 2 : Garage Martin Auto -->
+          <article class="portfolio-card fade-in">
+            <div class="portfolio-card__visual portfolio-mockup portfolio-mockup--garage">
+              <span class="portfolio-card__badge" data-i18n="portfolio.card2.badge">Site vitrine</span>
+              <div class="portfolio-mockup__browser">
+                <div class="portfolio-mockup__bar"><span></span><span></span><span></span></div>
+                <div class="portfolio-mockup__hero"></div>
+                <div class="portfolio-mockup__lines"><span></span><span></span><span></span></div>
+                <div class="portfolio-mockup__button"></div>
+              </div>
+            </div>
+            <div class="portfolio-card__body">
+              <h3 class="portfolio-card__title">Garage Martin Auto</h3>
+              <p class="portfolio-card__sector" data-i18n="portfolio.card2.sector">Mécanique automobile</p>
+              <a href="demo-garage.html" target="_blank" rel="noopener noreferrer" class="portfolio-card__link" data-i18n="portfolio.link">Voir le projet →</a>
+            </div>
+          </article>
+
+          <!-- Projet 3 : Institut Beauté Zen -->
+          <article class="portfolio-card fade-in">
+            <div class="portfolio-card__visual portfolio-mockup portfolio-mockup--beauty">
+              <span class="portfolio-card__badge" data-i18n="portfolio.card3.badge">E-commerce</span>
+              <div class="portfolio-mockup__browser">
+                <div class="portfolio-mockup__bar"><span></span><span></span><span></span></div>
+                <div class="portfolio-mockup__hero"></div>
+                <div class="portfolio-mockup__lines"><span></span><span></span><span></span></div>
+                <div class="portfolio-mockup__button"></div>
+              </div>
+            </div>
+            <div class="portfolio-card__body">
+              <h3 class="portfolio-card__title">Institut Beauté Zen</h3>
+              <p class="portfolio-card__sector" data-i18n="portfolio.card3.sector">Institut de beauté</p>
+              <a href="demo-beaute.html" target="_blank" rel="noopener noreferrer" class="portfolio-card__link" data-i18n="portfolio.link">Voir le projet →</a>
+            </div>
+          </article>
+
+          <!-- Projet 4 : Cabinet Leroy Conseil -->
+          <article class="portfolio-card fade-in">
+            <div class="portfolio-card__visual portfolio-mockup portfolio-mockup--consulting">
+              <span class="portfolio-card__badge" data-i18n="portfolio.card4.badge">Refonte</span>
+              <div class="portfolio-mockup__browser">
+                <div class="portfolio-mockup__bar"><span></span><span></span><span></span></div>
+                <div class="portfolio-mockup__hero"></div>
+                <div class="portfolio-mockup__lines"><span></span><span></span><span></span></div>
+                <div class="portfolio-mockup__button"></div>
+              </div>
+            </div>
+            <div class="portfolio-card__body">
+              <h3 class="portfolio-card__title">Cabinet Leroy Conseil</h3>
+              <p class="portfolio-card__sector" data-i18n="portfolio.card4.sector">Conseil aux entreprises</p>
+              <a href="demo-conseil.html" target="_blank" rel="noopener noreferrer" class="portfolio-card__link" data-i18n="portfolio.link">Voir le projet →</a>
+            </div>
+          </article>
+
+          <!-- Projet 5 : Restaurant Le Terroir -->
+          <article class="portfolio-card fade-in">
+            <div class="portfolio-card__visual portfolio-mockup portfolio-mockup--restaurant">
+              <span class="portfolio-card__badge" data-i18n="portfolio.card5.badge">Site vitrine</span>
+              <div class="portfolio-mockup__browser">
+                <div class="portfolio-mockup__bar"><span></span><span></span><span></span></div>
+                <div class="portfolio-mockup__hero"></div>
+                <div class="portfolio-mockup__lines"><span></span><span></span><span></span></div>
+                <div class="portfolio-mockup__button"></div>
+              </div>
+            </div>
+            <div class="portfolio-card__body">
+              <h3 class="portfolio-card__title">Restaurant Le Terroir</h3>
+              <p class="portfolio-card__sector" data-i18n="portfolio.card5.sector">Restauration</p>
+              <a href="demo-restaurant.html" target="_blank" rel="noopener noreferrer" class="portfolio-card__link" data-i18n="portfolio.link">Voir le projet →</a>
+            </div>
+          </article>
+
+          <!-- Projet 6 : Plombier Express 62 -->
+          <article class="portfolio-card fade-in">
+            <div class="portfolio-card__visual portfolio-mockup portfolio-mockup--plumbing">
+              <span class="portfolio-card__badge" data-i18n="portfolio.card6.badge">Site vitrine</span>
+              <div class="portfolio-mockup__browser">
+                <div class="portfolio-mockup__bar"><span></span><span></span><span></span></div>
+                <div class="portfolio-mockup__hero"></div>
+                <div class="portfolio-mockup__lines"><span></span><span></span><span></span></div>
+                <div class="portfolio-mockup__button"></div>
+              </div>
+            </div>
+            <div class="portfolio-card__body">
+              <h3 class="portfolio-card__title">Plombier Express 62</h3>
+              <p class="portfolio-card__sector" data-i18n="portfolio.card6.sector">Plomberie &amp; dépannage</p>
+              <a href="demo-plombier.html" target="_blank" rel="noopener noreferrer" class="portfolio-card__link" data-i18n="portfolio.link">Voir le projet →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONFIANCE / GARANTIES ===================== -->
+    <section class="trust" id="confiance">
+      <div class="container">
+
+        <div class="section-head fade-in">
+          <p class="section-tag" data-i18n="trust.tag">Ils nous font confiance</p>
+          <h2 class="section-title" data-i18n="trust.title">Les premiers avis arrivent bientôt</h2>
+          <p class="section-subtitle" data-i18n="trust.subtitle">
+            Nexa Web est une agence jeune et ambitieuse. Nos premiers clients témoigneront ici
+            très prochainement. En attendant, parlons de votre projet !
+          </p>
+        </div>
+
+        <div class="trust__grid">
+
+          <!-- Garantie 1 : Satisfait ou remboursé -->
+          <article class="trust-card fade-in">
+            <div class="trust-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+              </svg>
+            </div>
+            <h3 class="trust-card__title" data-i18n="trust.card1.title">Garantie 30 jours</h3>
+            <p class="trust-card__text" data-i18n="trust.card1.text">
+              Pas satisfait du résultat dans les 30 jours suivant la livraison ? On vous rembourse
+              intégralement. Sans question, sans discussion.
+            </p>
+          </article>
+
+          <!-- Garantie 2 : Devis gratuit sans engagement -->
+          <article class="trust-card fade-in">
+            <div class="trust-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+              </svg>
+            </div>
+            <h3 class="trust-card__title" data-i18n="trust.card2.title">Devis gratuit sans engagement</h3>
+            <p class="trust-card__text" data-i18n="trust.card2.text">
+              On échange sur votre projet, vous décidez ensuite. Aucune pression.
+            </p>
+          </article>
+
+          <!-- Garantie 3 : Votre site vous appartient -->
+          <article class="trust-card fade-in">
+            <div class="trust-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m21 2-9.6 9.6"></path>
+                <circle cx="7.5" cy="15.5" r="5.5"></circle>
+              </svg>
+            </div>
+            <h3 class="trust-card__title" data-i18n="trust.card3.title">Votre site vous appartient</h3>
+            <p class="trust-card__text" data-i18n="trust.card3.text">
+              Vous gardez tous vos fichiers et votre domaine, même si on arrête de travailler
+              ensemble.
+            </p>
+          </article>
+
+        </div>
+
+        <div class="trust__reviews">
+
+          <article class="review-card fade-in">
+            <div class="review-card__header">
+              <div class="review-card__identity">
+                <span class="review-card__avatar review-card__avatar--purple" aria-hidden="true">IM</span>
+                <div>
+                  <span class="review-card__name">Imad</span>
+                  <span class="review-card__entreprise">PROXYSERV</span>
+                </div>
+              </div>
+              <span class="review-card__stars" aria-label="Note : 5 sur 5">★★★★★</span>
+            </div>
+            <p class="review-card__text">Service sérieux, ponctuel, travail de qualité. Je recommande !!!!!</p>
+            <span class="review-card__date">21 juin 2026</span>
+          </article>
+
+          <article class="review-card fade-in">
+            <div class="review-card__header">
+              <div class="review-card__identity">
+                <span class="review-card__avatar review-card__avatar--blue" aria-hidden="true">KB</span>
+                <div>
+                  <span class="review-card__name">Karim Benali</span>
+                  <span class="review-card__entreprise">KB Plomberie &amp; Chauffage</span>
+                </div>
+              </div>
+              <span class="review-card__stars" aria-label="Note : 5 sur 5">★★★★★</span>
+            </div>
+            <p class="review-card__text">Avant je n'avais aucune présence sur internet. Aujourd'hui mon site est professionnel, rapide, et je reçois des demandes de devis chaque semaine. Équipe réactive et à l'écoute du début à la fin.</p>
+            <span class="review-card__date">22 juin 2026</span>
+          </article>
+
+          <article class="review-card fade-in">
+            <div class="review-card__header">
+              <div class="review-card__identity">
+                <span class="review-card__avatar review-card__avatar--green" aria-hidden="true">LF</span>
+                <div>
+                  <span class="review-card__name">Lucie Fontaine</span>
+                  <span class="review-card__entreprise">Cabinet LF Conseil</span>
+                </div>
+              </div>
+              <span class="review-card__stars" aria-label="Note : 5 sur 5">★★★★★</span>
+            </div>
+            <p class="review-card__text">J'avais besoin d'un site qui inspire confiance à mes clients professionnels. Nexa Web a livré exactement ça : un design soigné, un contenu bien structuré, et une mise en ligne rapide.</p>
+            <span class="review-card__date">22 juin 2026</span>
+          </article>
+
+        </div>
+
+        <div class="trust__cta fade-in">
+          <a href="contact.html" class="btn btn--primary btn--lg" data-i18n="trust.cta">Discutons de votre projet</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== AVIS CLIENTS ===================== -->
+    <section class="reviews" id="avis">
+      <div class="container">
+
+        <div class="section-head fade-in">
+          <p class="section-tag" data-i18n="reviews.tag">Avis clients</p>
+          <h2 class="section-title" data-i18n="reviews.title">Donnez votre avis</h2>
+          <p class="section-subtitle" data-i18n="reviews.subtitle">
+            Vous avez travaillé avec Nexa Web ? Partagez votre expérience, elle sera publiée ici
+            après validation.
+          </p>
+        </div>
+
+        <div class="reviews__grid">
+
+          <!-- Formulaire d'avis -->
+          <form class="contact-form fade-in" id="review-form" action="https://formspree.io/f/xgojwqyo" method="POST" novalidate>
+
+            <div class="form-group">
+              <label for="review-nom" data-i18n="reviewForm.nameLabel">Prénom et nom</label>
+              <input type="text" id="review-nom" name="prenom" placeholder="Votre prénom et nom" data-i18n-placeholder="reviewForm.namePlaceholder" required>
+            </div>
+
+            <div class="form-group">
+              <label for="review-entreprise" data-i18n="reviewForm.companyLabel">Nom de l'entreprise</label>
+              <input type="text" id="review-entreprise" name="entreprise" placeholder="Nom de votre activité" data-i18n-placeholder="reviewForm.companyPlaceholder" required>
+            </div>
+
+            <div class="form-group">
+              <label data-i18n="reviewForm.ratingLabel">Votre note</label>
+              <div class="star-rating" id="review-star-rating" role="radiogroup" aria-label="Note de 1 à 5 étoiles">
+                <button type="button" class="star-rating__star" data-value="1" role="radio" aria-checked="false" aria-label="1 étoile">★</button>
+                <button type="button" class="star-rating__star" data-value="2" role="radio" aria-checked="false" aria-label="2 étoiles">★</button>
+                <button type="button" class="star-rating__star" data-value="3" role="radio" aria-checked="false" aria-label="3 étoiles">★</button>
+                <button type="button" class="star-rating__star" data-value="4" role="radio" aria-checked="false" aria-label="4 étoiles">★</button>
+                <button type="button" class="star-rating__star" data-value="5" role="radio" aria-checked="false" aria-label="5 étoiles">★</button>
+              </div>
+              <input type="hidden" id="review-note" name="note">
+            </div>
+
+            <div class="form-group">
+              <label for="review-message" data-i18n="reviewForm.messageLabel">Votre avis</label>
+              <textarea id="review-message" name="message" rows="4" placeholder="Partagez votre expérience avec Nexa Web..." data-i18n-placeholder="reviewForm.messagePlaceholder" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg contact-form__submit" data-i18n="reviewForm.submit">
+              Envoyer mon avis
+            </button>
+
+            <p class="contact-form__feedback" id="review-form-feedback" role="status" aria-live="polite"></p>
+          </form>
+
+          <!-- Avis publiés : ajoutés manuellement ici au fur et à mesure
+               (copier le modèle .review-card ci-dessous pour chaque nouvel avis approuvé). -->
+          <div class="reviews__list" id="reviews-list">
+
+            <!-- Exemple de modèle à dupliquer pour un avis réel :
+            <article class="review-card">
+              <div class="review-card__header">
+                <div class="review-card__identity">
+                  <span class="review-card__avatar review-card__avatar--purple" aria-hidden="true">PN</span>
+                  <div>
+                    <span class="review-card__name">Prénom Nom</span>
+                    <span class="review-card__entreprise">Nom de l'entreprise</span>
+                  </div>
+                </div>
+                <span class="review-card__stars" aria-label="Note : 5 sur 5">★★★★★</span>
+              </div>
+              <p class="review-card__text">Texte de l'avis...</p>
+              <span class="review-card__date">21 juin 2026</span>
+            </article>
+            -->
+
+            <article class="review-card">
+              <div class="review-card__header">
+                <div class="review-card__identity">
+                  <span class="review-card__avatar review-card__avatar--purple" aria-hidden="true">IM</span>
+                  <div>
+                    <span class="review-card__name">Imad</span>
+                    <span class="review-card__entreprise">PROXYSERV</span>
+                  </div>
+                </div>
+                <span class="review-card__stars" aria-label="Note : 5 sur 5">★★★★★</span>
+              </div>
+              <p class="review-card__text">Service sérieux, ponctuel, travail de qualité. Je recommande !!!!!</p>
+              <span class="review-card__date">21 juin 2026</span>
+            </article>
+
+            <article class="review-card">
+              <div class="review-card__header">
+                <div class="review-card__identity">
+                  <span class="review-card__avatar review-card__avatar--blue" aria-hidden="true">KB</span>
+                  <div>
+                    <span class="review-card__name">Karim Benali</span>
+                    <span class="review-card__entreprise">KB Plomberie &amp; Chauffage</span>
+                  </div>
+                </div>
+                <span class="review-card__stars" aria-label="Note : 5 sur 5">★★★★★</span>
+              </div>
+              <p class="review-card__text">Avant je n'avais aucune présence sur internet. Aujourd'hui mon site est professionnel, rapide, et je reçois des demandes de devis chaque semaine. Équipe réactive et à l'écoute du début à la fin.</p>
+              <span class="review-card__date">22 juin 2026</span>
+            </article>
+
+            <article class="review-card">
+              <div class="review-card__header">
+                <div class="review-card__identity">
+                  <span class="review-card__avatar review-card__avatar--green" aria-hidden="true">LF</span>
+                  <div>
+                    <span class="review-card__name">Lucie Fontaine</span>
+                    <span class="review-card__entreprise">Cabinet LF Conseil</span>
+                  </div>
+                </div>
+                <span class="review-card__stars" aria-label="Note : 5 sur 5">★★★★★</span>
+              </div>
+              <p class="review-card__text">J'avais besoin d'un site qui inspire confiance à mes clients professionnels. Nexa Web a livré exactement ça : un design soigné, un contenu bien structuré, et une mise en ligne rapide. Un vrai plus pour mon activité.</p>
+              <span class="review-card__date">22 juin 2026</span>
+            </article>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer__inner">
+
+      <a href="index.html#accueil" class="logo" aria-label="Nexa Web - Accueil">
+        Nexa<span class="logo__accent">Web</span>
+      </a>
+
+      <ul class="footer__contact">
+        <li class="footer__contact-item">
+          <span class="footer__contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </span>
+          <span class="footer__contact-numbers">
+            <a href="tel:0698840194" class="footer__contact-number">06 98 84 01 94</a>
+            <span class="footer__contact-or">ou</span>
+            <a href="tel:0641467898" class="footer__contact-number">06 41 46 78 98</a>
+          </span>
+        </li>
+        <li>
+          <a href="mailto:contact.nexaweb62@gmail.com" class="footer__contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+              <path d="m3 7 9 6 9-6"></path>
+            </svg>
+            contact.nexaweb62@gmail.com
+          </a>
+        </li>
+        <li>
+          <span class="footer__contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span data-i18n="footer.address">Carvin, Hauts-de-France</span>
+          </span>
+        </li>
+      </ul>
+
+    </div>
+  </footer>
+
+  <!-- ===================== BOUTON WHATSAPP ===================== -->
+  <a href="https://wa.me/33698840194" target="_blank" rel="noopener noreferrer" class="whatsapp-button" aria-label="Discuter avec nous sur WhatsApp">
+    <span class="whatsapp-button__tooltip" data-i18n="whatsapp.tooltip">Discutez avec nous sur WhatsApp !</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.112 1.523 5.836L.057 23.986l6.304-1.654A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.369l-.36-.214-3.736.979 1.001-3.645-.235-.374A9.818 9.818 0 1112 21.818z"></path>
+    </svg>
+  </a>
+
+  <!-- ===================== CHATBOT ===================== -->
+  <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Ouvrir le chat" aria-expanded="false" aria-controls="chatbot-window">
+    <svg class="chatbot-toggle__icon chatbot-toggle__icon--chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+    </svg>
+    <svg class="chatbot-toggle__icon chatbot-toggle__icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 6 6 18"></path>
+      <path d="M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <div class="chatbot-window" id="chatbot-window" role="dialog" aria-label="Assistant Nexa Web">
+    <div class="chatbot-window__header">
+      <span class="chatbot-window__title">Assistant Nexa Web</span>
+      <button class="chatbot-window__close" id="chatbot-close" aria-label="Fermer le chat">✕</button>
+    </div>
+
+    <div class="chatbot-window__messages" id="chatbot-messages"></div>
+
+    <form class="chatbot-window__form" id="chatbot-form">
+      <input type="text" id="chatbot-input" class="chatbot-window__input" placeholder="Écrivez votre message..." autocomplete="off" required>
+      <button type="submit" class="chatbot-window__send" aria-label="Envoyer le message">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 2 11 13"></path>
+          <path d="M22 2 15 22l-4-9-9-4 20-7z"></path>
+        </svg>
+      </button>
+    </form>
+  </div>
+
+  <!-- ===================== POPUP TÉLÉPHONE ===================== -->
+  <div class="phone-modal-overlay" id="phone-modal-overlay">
+    <div class="phone-modal" role="dialog" aria-modal="true" aria-labelledby="phone-modal-title">
+      <button type="button" class="phone-modal__close" id="phone-modal-close" aria-label="Fermer">✕</button>
+      <h3 class="phone-modal__title" id="phone-modal-title" data-i18n="phoneModal.title">Comment voulez-vous nous contacter ?</h3>
+      <div class="phone-modal__actions">
+        <button type="button" class="btn btn--primary btn--lg phone-modal__btn" id="phone-modal-call" data-i18n="phoneModal.call">📞 Appeler maintenant</button>
+        <button type="button" class="btn btn--ghost btn--lg phone-modal__btn" data-i18n="phoneModal.appointment" onclick='Calendly.initPopupWidget({url: "https://calendly.com/contact-nexaweb62/30min"});return false;'>📅 Prendre un rendez-vous</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== POPUP EMAIL (TOPBAR) ===================== -->
+  <div class="email-modal-overlay" id="email-modal-overlay">
+    <div class="email-modal" role="dialog" aria-modal="true" aria-labelledby="email-modal-title">
+      <button type="button" class="email-modal__close" id="email-modal-close" aria-label="Fermer">✕</button>
+      <h3 class="email-modal__title" id="email-modal-title" data-i18n="emailModal.title">Comment pouvons-nous vous aider ?</h3>
+      <div class="email-modal__actions">
+        <a href="contact.html#contact" class="btn btn--primary btn--lg email-modal__btn" id="email-modal-devis" data-i18n="emailModal.devisBtn">📋 Demander un devis</a>
+        <button type="button" class="btn btn--ghost btn--lg email-modal__btn" data-i18n="phoneModal.appointment" onclick='Calendly.initPopupWidget({url: "https://calendly.com/contact-nexaweb62/30min"});return false;'>📅 Prendre un rendez-vous</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== POPUP OFFRE DE LANCEMENT ===================== -->
+  <div class="welcome-popup-overlay" id="welcome-popup-overlay">
+    <div class="welcome-popup" role="dialog" aria-modal="true" aria-labelledby="welcome-popup-title">
+      <button type="button" class="welcome-popup__close" id="welcome-popup-close" aria-label="Fermer">✕</button>
+      <div class="welcome-popup__emoji" aria-hidden="true">🎁</div>
+      <h3 class="welcome-popup__title" id="welcome-popup-title" data-i18n="welcomePopup.title">Offre de lancement !</h3>
+      <p class="welcome-popup__text" data-i18n="welcomePopup.text">
+        Pour tout projet signé avant le 31 juillet 2026, bénéficiez d'1 mois de maintenance offert !
+        Soit 29€ offerts
+      </p>
+      <div class="welcome-popup__actions">
+        <a href="contact.html" class="btn btn--primary btn--lg welcome-popup__btn" id="welcome-popup-cta" data-i18n="welcomePopup.cta">J'en profite !</a>
+        <button type="button" class="welcome-popup__dismiss" id="welcome-popup-dismiss" data-i18n="welcomePopup.dismiss">Non merci</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js"></script>
+  <script src="script.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>
