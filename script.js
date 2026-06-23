@@ -10,6 +10,7 @@
    7. Avis clients (index.html) via Formspree
    8. Popup téléphone (header, footer, section contact)
    8b. Popup email (topbar)
+   8c. Popup réalisations (aperçu projet en iframe)
    9. Popup offre de lancement (index.html)
    ========================================================= */
 
@@ -1002,6 +1003,44 @@ document.addEventListener('DOMContentLoaded', () => {
     if (emailDevisBtn) {
       emailDevisBtn.addEventListener('click', closeEmailModal);
     }
+  }
+
+  /* ---------- 8c. Popup réalisations (aperçu projet en iframe) ---------- */
+  const projectModalOverlay = document.getElementById('project-modal-overlay');
+
+  if (projectModalOverlay) {
+    const closeProjectModalBtn = document.getElementById('project-modal-close');
+    const projectModalIframe = document.getElementById('project-modal-iframe');
+    const projectModalTitle = document.getElementById('project-modal-title');
+    const projectTriggers = document.querySelectorAll('.project-modal-trigger');
+
+    function openProjectModal(url, name) {
+      projectModalIframe.src = url;
+      projectModalTitle.textContent = name;
+      projectModalOverlay.classList.add('is-open');
+    }
+
+    function closeProjectModal() {
+      projectModalOverlay.classList.remove('is-open');
+      projectModalIframe.src = '';
+    }
+
+    projectTriggers.forEach(trigger => {
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        openProjectModal(trigger.dataset.demoUrl, trigger.dataset.demoName);
+      });
+    });
+
+    closeProjectModalBtn.addEventListener('click', closeProjectModal);
+
+    projectModalOverlay.addEventListener('click', (event) => {
+      if (event.target === projectModalOverlay) closeProjectModal();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeProjectModal();
+    });
   }
 
   /* ---------- 9. Popup offre de lancement (index.html) ---------- */

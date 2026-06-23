@@ -371,7 +371,7 @@
             <div class="portfolio-card__body">
               <h3 class="portfolio-card__title">Boulangerie Dupont</h3>
               <p class="portfolio-card__sector" data-i18n="portfolio.card1.sector">Boulangerie artisanale</p>
-              <a href="demo-boulangerie.html" target="_blank" rel="noopener noreferrer" class="portfolio-card__link" data-i18n="portfolio.link">Voir le projet →</a>
+              <a href="demo-boulangerie.html" class="portfolio-card__link project-modal-trigger" data-demo-url="demo-boulangerie.html" data-demo-name="Boulangerie Dupont" data-i18n="portfolio.link">Voir le projet →</a>
             </div>
           </article>
 
@@ -389,7 +389,7 @@
             <div class="portfolio-card__body">
               <h3 class="portfolio-card__title">Garage Martin Auto</h3>
               <p class="portfolio-card__sector" data-i18n="portfolio.card2.sector">Mécanique automobile</p>
-              <a href="demo-garage.html" target="_blank" rel="noopener noreferrer" class="portfolio-card__link" data-i18n="portfolio.link">Voir le projet →</a>
+              <a href="demo-garage.html" class="portfolio-card__link project-modal-trigger" data-demo-url="demo-garage.html" data-demo-name="Garage Martin Auto" data-i18n="portfolio.link">Voir le projet →</a>
             </div>
           </article>
 
@@ -407,7 +407,7 @@
             <div class="portfolio-card__body">
               <h3 class="portfolio-card__title">Institut Beauté Zen</h3>
               <p class="portfolio-card__sector" data-i18n="portfolio.card3.sector">Institut de beauté</p>
-              <a href="demo-beaute.html" target="_blank" rel="noopener noreferrer" class="portfolio-card__link" data-i18n="portfolio.link">Voir le projet →</a>
+              <a href="demo-beaute.html" class="portfolio-card__link project-modal-trigger" data-demo-url="demo-beaute.html" data-demo-name="Institut Beauté Zen" data-i18n="portfolio.link">Voir le projet →</a>
             </div>
           </article>
 
@@ -425,7 +425,7 @@
             <div class="portfolio-card__body">
               <h3 class="portfolio-card__title">Cabinet Leroy Conseil</h3>
               <p class="portfolio-card__sector" data-i18n="portfolio.card4.sector">Conseil aux entreprises</p>
-              <a href="demo-conseil.html" target="_blank" rel="noopener noreferrer" class="portfolio-card__link" data-i18n="portfolio.link">Voir le projet →</a>
+              <a href="demo-conseil.html" class="portfolio-card__link project-modal-trigger" data-demo-url="demo-conseil.html" data-demo-name="Cabinet Leroy Conseil" data-i18n="portfolio.link">Voir le projet →</a>
             </div>
           </article>
 
@@ -443,7 +443,7 @@
             <div class="portfolio-card__body">
               <h3 class="portfolio-card__title">Restaurant Le Terroir</h3>
               <p class="portfolio-card__sector" data-i18n="portfolio.card5.sector">Restauration</p>
-              <a href="demo-restaurant.html" target="_blank" rel="noopener noreferrer" class="portfolio-card__link" data-i18n="portfolio.link">Voir le projet →</a>
+              <a href="demo-restaurant.html" class="portfolio-card__link project-modal-trigger" data-demo-url="demo-restaurant.html" data-demo-name="Restaurant Le Terroir" data-i18n="portfolio.link">Voir le projet →</a>
             </div>
           </article>
 
@@ -461,7 +461,7 @@
             <div class="portfolio-card__body">
               <h3 class="portfolio-card__title">Plombier Express 62</h3>
               <p class="portfolio-card__sector" data-i18n="portfolio.card6.sector">Plomberie &amp; dépannage</p>
-              <a href="demo-plombier.html" target="_blank" rel="noopener noreferrer" class="portfolio-card__link" data-i18n="portfolio.link">Voir le projet →</a>
+              <a href="demo-plombier.html" class="portfolio-card__link project-modal-trigger" data-demo-url="demo-plombier.html" data-demo-name="Plombier Express 62" data-i18n="portfolio.link">Voir le projet →</a>
             </div>
           </article>
 
@@ -830,6 +830,17 @@
         <a href="contact.html" class="btn btn--primary btn--lg welcome-popup__btn" id="welcome-popup-cta" data-i18n="welcomePopup.cta">J'en profite !</a>
         <button type="button" class="welcome-popup__dismiss" id="welcome-popup-dismiss" data-i18n="welcomePopup.dismiss">Non merci</button>
       </div>
+    </div>
+  </div>
+
+  <!-- ===================== POPUP RÉALISATIONS (APERÇU PROJET) ===================== -->
+  <div class="project-modal-overlay" id="project-modal-overlay">
+    <div class="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+      <div class="project-modal__bar">
+        <span class="project-modal__title" id="project-modal-title">Aperçu du projet</span>
+        <button type="button" class="project-modal__close" id="project-modal-close" aria-label="Fermer">✕</button>
+      </div>
+      <iframe class="project-modal__iframe" id="project-modal-iframe" title="Aperçu du projet" loading="lazy"></iframe>
     </div>
   </div>
 
