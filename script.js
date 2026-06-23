@@ -34,6 +34,7 @@ const TRANSLATIONS = {
     'header.quoteBtn': 'Devis gratuit',
 
     'footer.address': 'Carvin, Hauts-de-France',
+    'footer.legal': 'Mentions légales',
 
     'phoneModal.title': 'Comment voulez-vous nous contacter ?',
     'phoneModal.call': '📞 Appeler maintenant',
@@ -312,6 +313,7 @@ const TRANSLATIONS = {
     'header.quoteBtn': 'Get a free quote',
 
     'footer.address': 'Carvin, Northern France',
+    'footer.legal': 'Legal notice',
 
     'phoneModal.title': 'How would you like to contact us?',
     'phoneModal.call': '📞 Call now',
