@@ -5,6 +5,9 @@
    2. Menu mobile (burger)
    3. Fermeture du menu au clic sur un lien
    4. Animations au scroll (fade-in)
+   4b. Compteur animé (section stats)
+   4c. Accordéon FAQ
+   4d3. Bouton retour en haut
    5. Préremplissage du champ "Type de projet" (devis.html ?formule=...)
    6. Formulaires (contact.html, devis.html) via EmailJS
    7. Avis clients (index.html) via Formspree
@@ -93,6 +96,11 @@ const TRANSLATIONS = {
     'why.card4.title': 'Design moderne sur-mesure',
     'why.card4.text': "Chaque site est conçu spécifiquement pour votre image de marque, pas à partir d'un modèle générique.",
 
+    'stats.item1': 'Projets réalisés',
+    'stats.item2': 'Clients satisfaits',
+    'stats.item3': 'Délai moyen',
+    'stats.item4': 'Expérience',
+
     'portfolio.tag': 'Réalisations',
     'portfolio.title': 'Quelques exemples de projets',
     'portfolio.subtitle': 'Activité encore jeune : voici des exemples représentatifs du type de sites que nous réalisons. Nos vrais projets clients viendront enrichir cette galerie.',
@@ -133,6 +141,21 @@ const TRANSLATIONS = {
     'reviewForm.messagePlaceholder': 'Partagez votre expérience avec Nexa Web...',
     'reviewForm.submit': 'Envoyer mon avis',
     'reviews.empty': 'Soyez le premier à laisser un avis !',
+
+    'faq.tag': 'Questions fréquentes',
+    'faq.title': 'Vous avez des questions ?',
+    'faq.q1': 'Combien coûte un site internet ?',
+    'faq.a1': 'À partir de 490€ pour un site vitrine complet.',
+    'faq.q2': 'Combien de temps pour créer mon site ?',
+    'faq.a2': 'Entre 5 et 15 jours selon la complexité.',
+    'faq.q3': 'Est-ce que mon site sera visible sur Google ?',
+    'faq.a3': 'Oui, on optimise le SEO de base inclus.',
+    'faq.q4': 'Puis-je modifier mon site après livraison ?',
+    'faq.a4': 'Oui, avec la maintenance à 29€/mois.',
+    'faq.q5': 'Proposez-vous une garantie ?',
+    'faq.a5': 'Oui, garantie 30 jours satisfait ou remboursé.',
+    'faq.q6': 'Vous déplacez-vous ?',
+    'faq.a6': 'On travaille à distance, partout en France.',
 
     'pricingBanner.tag': 'Tarifs',
     'pricingBanner.part1': 'Des tarifs simples, pensés pour les ',
@@ -372,6 +395,11 @@ const TRANSLATIONS = {
     'why.card4.title': 'Modern, tailor-made design',
     'why.card4.text': 'Every website is designed specifically for your brand image, not from a generic template.',
 
+    'stats.item1': 'Projects delivered',
+    'stats.item2': 'Happy clients',
+    'stats.item3': 'Average turnaround',
+    'stats.item4': 'Experience',
+
     'portfolio.tag': 'Our projects',
     'portfolio.title': 'A few project examples',
     'portfolio.subtitle': 'Still a young agency: here are representative examples of the type of websites we build. Our real client projects will enrich this gallery soon.',
@@ -412,6 +440,21 @@ const TRANSLATIONS = {
     'reviewForm.messagePlaceholder': 'Share your experience with Nexa Web...',
     'reviewForm.submit': 'Submit my review',
     'reviews.empty': 'Be the first to leave a review!',
+
+    'faq.tag': 'FAQ',
+    'faq.title': 'Got questions?',
+    'faq.q1': 'How much does a website cost?',
+    'faq.a1': 'Starting from €490 for a complete showcase website.',
+    'faq.q2': 'How long does it take to build my website?',
+    'faq.a2': 'Between 5 and 15 days depending on complexity.',
+    'faq.q3': 'Will my website be visible on Google?',
+    'faq.a3': 'Yes, basic SEO optimization is included.',
+    'faq.q4': 'Can I update my website after delivery?',
+    'faq.a4': 'Yes, with the €29/month maintenance plan.',
+    'faq.q5': 'Do you offer a guarantee?',
+    'faq.a5': 'Yes, a 30-day money-back guarantee.',
+    'faq.q6': 'Do you travel to clients?',
+    'faq.a6': 'We work remotely, serving clients all over France.',
 
     'pricingBanner.tag': 'Pricing',
     'pricingBanner.part1': 'Simple pricing, designed for ',
@@ -713,6 +756,74 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.15 });
 
   fadeElements.forEach(el => observer.observe(el));
+
+  /* ---------- 4b. Compteur animé (section stats) ---------- */
+  const statCounts = document.querySelectorAll('.stat-item__count');
+
+  if (statCounts.length) {
+    const COUNT_DURATION_MS = 1500;
+
+    function animateCount(el) {
+      const target = Number(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const startTime = performance.now();
+
+      function step(now) {
+        const progress = Math.min((now - startTime) / COUNT_DURATION_MS, 1);
+        const value = Math.round(target * progress);
+        el.textContent = value + suffix;
+
+        if (progress < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          statCounts.forEach(animateCount);
+          statsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+
+    statsObserver.observe(document.getElementById('stats'));
+  }
+
+  /* ---------- 4c. Accordéon FAQ ---------- */
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-item__question');
+
+    question.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+
+      faqItems.forEach(other => {
+        other.classList.remove('is-open');
+        other.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('is-open');
+        question.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ---------- 4d3. Bouton retour en haut ---------- */
+  const scrollTopButton = document.getElementById('scroll-top-btn');
+
+  if (scrollTopButton) {
+    window.addEventListener('scroll', () => {
+      scrollTopButton.classList.toggle('is-visible', window.scrollY > 400);
+    });
+
+    scrollTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   /* ---------- 5. Préremplissage du champ "Type de projet" ---------- */
   const typeProjetSelect = document.getElementById('devis-type-projet');

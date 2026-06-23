@@ -629,6 +629,38 @@ h1, h2, h3 {
   color: var(--color-text-muted);
 }
 
+/* ---------- 4d2. Compteur animé ---------- */
+.stats {
+  padding: 72px 0;
+  background: linear-gradient(135deg, #2a0e45, #3b0a5c);
+}
+
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+
+.stat-item__icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.stat-item__number {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.stat-item__label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #d8b4fe;
+}
+
 /* ---------- 4e. Réalisations / Portfolio ---------- */
 .portfolio {
   padding: 100px 0;
@@ -1567,6 +1599,84 @@ a.footer__contact-link:hover {
   border-radius: var(--radius-lg);
 }
 
+/* ---------- 4l2. FAQ ---------- */
+.faq__list {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition);
+}
+
+.faq-item.is-open {
+  border-color: var(--color-accent);
+}
+
+.faq-item__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.faq-item__icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: transform var(--transition);
+}
+
+.faq-item.is-open .faq-item__icon {
+  transform: rotate(45deg);
+}
+
+.faq-item__answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.faq-item__answer-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faq-item__answer-inner p {
+  padding: 0 24px 20px;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.faq-item.is-open .faq-item__answer {
+  grid-template-rows: 1fr;
+}
+
 /* ---------- 4m. Rendez-vous (Calendly) ---------- */
 .appointment {
   position: relative;
@@ -1759,7 +1869,8 @@ a.footer__contact-link:hover {
   .why__grid,
   .portfolio__grid,
   .trust__grid,
-  .trust__reviews {
+  .trust__reviews,
+  .stats__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1885,6 +1996,48 @@ a.footer__contact-link:hover {
     flex-direction: column;
     gap: 14px;
   }
+}
+
+/* =========================================================
+   BOUTON RETOUR EN HAUT
+   ========================================================= */
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 166px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+  z-index: 1150;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
+.scroll-top-btn.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.scroll-top-btn svg {
+  width: 22px;
+  height: 22px;
 }
 
 /* =========================================================
@@ -2234,6 +2387,13 @@ a.footer__contact-link:hover {
   .whatsapp-button {
     right: 16px;
     bottom: 86px;
+  }
+
+  .scroll-top-btn {
+    right: 16px;
+    bottom: 146px;
+    width: 44px;
+    height: 44px;
   }
 }
 
@@ -2642,4 +2802,32 @@ a.footer__contact-link:hover {
     flex-direction: column;
     text-align: center;
   }
+}
+
+/* ---------- Page 404 ---------- */
+.error-page {
+  min-height: calc(100vh - 76px - 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 0;
+  text-align: center;
+}
+
+.error-page__emoji {
+  font-size: 5rem;
+  margin-bottom: 24px;
+}
+
+.error-page__title {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.error-page__text {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  max-width: 460px;
+  margin: 0 auto 32px;
 }

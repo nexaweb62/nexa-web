@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Page introuvable - Nexa Web</title>
+  <meta name="description" content="Cette page n'existe pas ou a été déplacée. Retournez à l'accueil de Nexa Web.">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    (function () {
+      var theme = localStorage.getItem('nexaweb-theme');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ===================== HEADER SIMPLIFIÉ ===================== -->
+  <header class="legal-header">
+    <div class="container legal-header__inner">
+      <a href="index.html" class="logo" aria-label="Nexa Web - Accueil">
+        Nexa<span class="logo__accent">Web</span>
+      </a>
+      <a href="index.html" class="legal-header__back">← Retour à l'accueil</a>
+    </div>
+  </header>
+
+  <main class="error-page">
+    <div class="container">
+      <div class="error-page__emoji" aria-hidden="true">🔍</div>
+      <h1 class="error-page__title">Page introuvable</h1>
+      <p class="error-page__text">Cette page n'existe pas ou a été déplacée.</p>
+      <a href="index.html" class="btn btn--primary">Retour à l'accueil</a>
+    </div>
+  </main>
+
+  <!-- ===================== FOOTER SIMPLIFIÉ ===================== -->
+  <footer class="legal-footer">
+    <div class="container legal-footer__inner">
+      <span class="logo">Nexa<span class="logo__accent">Web</span></span>
+      <p>© 2026 Nexa Web — Tous droits réservés.</p>
+      <a href="index.html">Retour à l'accueil</a>
+    </div>
+  </footer>
+
+</body>
+</html>
