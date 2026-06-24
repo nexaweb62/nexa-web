@@ -1,7 +1,7 @@
 # Nexa Web — Notes du projet
 
 Site vitrine statique (HTML/CSS/JS, sans framework ni build) pour Nexa Web, agence de création de
-sites internet basée à Carvin (Hauts-de-France). Dernière mise à jour de ce document : 2026-06-22.
+sites internet basée à Carvin (Hauts-de-France). Dernière mise à jour de ce document : 2026-06-24.
 
 ## Infos site
 
@@ -39,6 +39,10 @@ sites internet basée à Carvin (Hauts-de-France). Dernière mise à jour de ce 
 | **Anthropic API** | Modèle utilisé par le chatbot | `claude-haiku-4-5-20251001`, max_tokens 300, prompt système FR ou EN selon la langue du site |
 | **Google reCAPTCHA v2** | Anti-spam sur le formulaire de devis (`devis.html`) | Clé de site `6LfxLi4tAAAAAAPSSlHxBoHxaHdTv4sBru9wcSTp` (clé publique, sans risque à exposer) |
 | **WhatsApp** | Bouton de chat direct | `https://wa.me/33698840194` |
+| **Google Analytics** | Mesure d'audience du site | Compte créé sur analytics.google.com avec `contact.nexaweb62@gmail.com` — Measurement ID `G-XXXXXXXXXX` à compléter dans `index.html` |
+| **Google Business Profile** | Fiche établissement (Google Maps / Recherche) | En cours de vérification — courrier postal de validation à recevoir |
+| **PayPal Business** | Facturation clients et réception de virements bancaires | Compte `contact.nexaweb62@gmail.com` |
+| **PWA** | Site installable sur mobile/desktop, mise en cache des fichiers principaux | `manifest.json` et `sw.js` ajoutés à la racine du projet |
 
 ## Clés / identifiants — sécurité
 
@@ -96,19 +100,34 @@ sites internet basée à Carvin (Hauts-de-France). Dernière mise à jour de ce 
 - Double numéro de téléphone partout, avec popup de choix
 - Garantie 30 jours (carte dédiée + badge vert sur les cartes tarifaires)
 - Localisation de la topbar cliquable → ouvre Google Maps dans un nouvel onglet
+- **GitHub** connecté (repo : [github.com/nexaweb62/nexa-web](https://github.com/nexaweb62/nexa-web))
+- **Auto-déploiement Netlify** via GitHub (push sur `main` = mise en ligne automatique)
+- 6 pages démo de projets fictifs avec aperçu en modale (remplace les maquettes simulées en CSS)
+- Bannière cookies RGPD
+- Compteur animé (10+ projets réalisés, 100% clients satisfaits, 7 jours délai moyen, 1 an d'expérience)
+- Section FAQ en accordéon (6 questions/réponses)
+- Page 404 personnalisée (`404.html`)
+- SEO amélioré (title, meta description, keywords, Open Graph, balise canonical)
+- Bouton flottant de retour en haut de page
+- Mentions légales / CGV / politique RGPD (`mentions-legales.html`)
+- `sitemap.xml` soumis à Google Search Console
+- Favicon avec logo "NW" dédié
+- PWA installable sur mobile (`manifest.json` + `sw.js`)
+- Tarifs mis à jour (mention PWA ajoutée aux formules Standard et Premium)
+- Formulaire de devis : options de budget estimé nettoyées (500-1000€, 1000-2000€, +2000€)
 
 ## À faire
 
-- Ajouter de **vraies maquettes** dans la section Réalisations (utiliser [Screely.com](https://screely.com) pour les capturer/habiller), à la place des maquettes simulées en CSS actuelles
-- Configurer **GitHub** pour l'auto-déploiement Netlify (actuellement déploiement manuel)
-- Ajouter un **favicon avec le logo "NW"** dédié, sur les 8 pages (actuel : cercle noir générique, posé sur `index.html` uniquement)
-- Configurer **Google Search Console** pour l'indexation du site
+- Finaliser **Google Analytics** (ajouter le Measurement ID `G-XXXXXXXXXX` dans `index.html` une fois le compte validé)
+- Finir la vérification de **Google Business Profile** (en attente du courrier postal)
+- Ajouter de **vraies captures Screely.com** dans la section Réalisations, à la place des 6 démos fictives actuelles
+- Page de remerciement (`merci.html`), animations au scroll renforcées, footer complet, blog (2 articles), modèle de contrat client
 
 ## Points en attente / à surveiller
 
-- Le **Worker Cloudflare déployé** doit être manuellement mis à jour (copier-coller le contenu de
-  `cloudflare-worker.js`) à chaque modification du fichier local — il n'y a pas de déploiement
-  automatique tant que GitHub n'est pas connecté à Netlify.
+- Le **Worker Cloudflare déployé** doit toujours être manuellement mis à jour (copier-coller le
+  contenu de `cloudflare-worker.js`) à chaque modification du fichier local — contrairement au reste
+  du site, il n'est pas couvert par l'auto-déploiement Netlify/GitHub.
 - Les 3 anciennes pages d'étude de cas (`projet-*.html`) ne sont plus liées depuis `index.html` mais
   existent toujours sur le site (accessibles par URL directe).
 - Pas de tests automatisés ni de CI : toutes les vérifications faites sur ce projet l'ont été
