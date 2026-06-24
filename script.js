@@ -13,6 +13,7 @@
    4d3. Bouton retour en haut
    5. Préremplissage du champ "Type de projet" (devis.html ?formule=...)
    5d. Calculateur de prix interactif (tarifs.html)
+   5e. Préremplissage du devis depuis le calculateur de prix (devis.html ?calcType=...)
    6. Formulaires (contact.html, devis.html) via EmailJS
    7. Avis clients (index.html) via Formspree
    8. Popup téléphone (header, footer, section contact)
@@ -1088,6 +1089,62 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     updateCalculatorPrice();
+
+    const calculatorCta = document.getElementById('calculator-cta');
+
+    if (calculatorCta) {
+      calculatorCta.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const typeBtn = document.querySelector('[data-calc-group="type"] .is-active');
+        const pagesBtn = document.querySelector('[data-calc-group="pages"] .is-active');
+        const delaiBtn = document.querySelector('[data-calc-group="delai"] .is-active');
+
+        const params = new URLSearchParams({
+          calcType: typeBtn ? typeBtn.dataset.typeKey : '',
+          calcTypeLabel: typeBtn ? typeBtn.textContent.trim() : '',
+          calcPages: pagesBtn ? pagesBtn.textContent.trim() : '',
+          calcDelai: delaiBtn ? delaiBtn.textContent.trim() : '',
+          calcPrix: calculatorPriceEl.textContent.replace('€', '').trim()
+        });
+
+        window.location.href = `devis.html?${params.toString()}#devis`;
+      });
+    }
+  }
+
+  /* ---------- 5e. Préremplissage du devis depuis le calculateur de prix (tarifs.html) ---------- */
+  const calcParams = new URLSearchParams(window.location.search);
+  const calcTypeKey = calcParams.get('calcType');
+
+  if (typeProjetSelect && calcTypeKey) {
+    const TYPE_KEY_TO_OPTION = {
+      vitrine: 'Site vitrine',
+      ecommerce: 'Site e-commerce',
+      refonte: 'Refonte de site existant'
+    };
+
+    const mappedType = TYPE_KEY_TO_OPTION[calcTypeKey];
+    if (mappedType) typeProjetSelect.value = mappedType;
+
+    const calcPrix = Number(calcParams.get('calcPrix'));
+
+    if (budgetSelect && !Number.isNaN(calcPrix)) {
+      let calcBudgetValue;
+      if (calcPrix < 1000) calcBudgetValue = '500 € - 1000 €';
+      else if (calcPrix < 2000) calcBudgetValue = '1000 € - 2000 €';
+      else calcBudgetValue = 'Plus de 2000 €';
+      budgetSelect.value = calcBudgetValue;
+    }
+
+    const devisMessageEl = document.getElementById('devis-message');
+    const calcTypeLabel = calcParams.get('calcTypeLabel') || '';
+    const calcPages = calcParams.get('calcPages') || '';
+    const calcDelai = calcParams.get('calcDelai') || '';
+
+    if (devisMessageEl && !devisMessageEl.value) {
+      devisMessageEl.value = `Bonjour, je souhaite un site ${calcTypeLabel} avec ${calcPages} pages en ${calcDelai}. Budget estimé : ${calcPrix}€`;
+    }
   }
 
   /* ---------- 6. Formulaires (contact.html, devis.html) ---------- */
