@@ -117,6 +117,55 @@
       </div>
     </section>
 
+    <!-- ===================== CALCULATEUR DE PRIX ===================== -->
+    <section class="calculator">
+      <div class="container">
+
+        <div class="section-head fade-in">
+          <p class="section-tag" data-i18n="calculator.tag">Calculateur</p>
+          <h2 class="section-title" data-i18n="calculator.title">Estimez le prix de votre projet</h2>
+          <p class="section-subtitle" data-i18n="calculator.subtitle">Répondez à 3 questions pour obtenir une estimation immédiate.</p>
+        </div>
+
+        <div class="calculator__box fade-in">
+
+          <div class="calculator__question">
+            <p class="calculator__label" data-i18n="calculator.q1">Type de site ?</p>
+            <div class="calculator__options" data-calc-group="type">
+              <button type="button" class="calculator__option is-active" data-value="490" data-i18n="calculator.opt.vitrine">Vitrine</button>
+              <button type="button" class="calculator__option" data-value="1200" data-i18n="calculator.opt.ecommerce">E-commerce</button>
+              <button type="button" class="calculator__option" data-value="690" data-i18n="calculator.opt.refonte">Refonte</button>
+            </div>
+          </div>
+
+          <div class="calculator__question">
+            <p class="calculator__label" data-i18n="calculator.q2">Nombre de pages ?</p>
+            <div class="calculator__options" data-calc-group="pages">
+              <button type="button" class="calculator__option is-active" data-value="0" data-i18n="calculator.opt.pages1">1 à 3</button>
+              <button type="button" class="calculator__option" data-value="400" data-i18n="calculator.opt.pages2">4 à 7</button>
+              <button type="button" class="calculator__option" data-value="900" data-i18n="calculator.opt.pages3">8 et plus</button>
+            </div>
+          </div>
+
+          <div class="calculator__question">
+            <p class="calculator__label" data-i18n="calculator.q3">Délai souhaité ?</p>
+            <div class="calculator__options" data-calc-group="delai">
+              <button type="button" class="calculator__option" data-value="200" data-i18n="calculator.opt.express">Express (5j)</button>
+              <button type="button" class="calculator__option is-active" data-value="0" data-i18n="calculator.opt.normal">Normal (10j)</button>
+              <button type="button" class="calculator__option" data-value="-50" data-i18n="calculator.opt.flexible">Flexible (15j)</button>
+            </div>
+          </div>
+
+          <div class="calculator__result">
+            <p class="calculator__result-label" data-i18n="calculator.resultLabel">Prix estimé</p>
+            <p class="calculator__result-price" id="calculator-price">490 €</p>
+            <a href="contact.html#contact" class="btn btn--primary btn--lg" data-i18n="calculator.cta">Obtenir ce tarif</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== SECTION TARIFS ===================== -->
     <section class="pricing">
       <div class="container">

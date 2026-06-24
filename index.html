@@ -43,6 +43,33 @@
     gtag('js', new Date());
     gtag('config', 'G-8TPVX3PQ1S');
   </script>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Nexa Web",
+    "description": "Agence web à Carvin spécialisée en création de sites internet pour TPE et artisans",
+    "url": "https://nexaaweb.com",
+    "telephone": "+33698840194",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carvin",
+      "addressLocality": "Carvin",
+      "postalCode": "62220",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 50.4897,
+      "longitude": 2.9631
+    },
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "priceRange": "€€",
+    "image": "https://nexaaweb.com/favicon.svg"
+  }
+  </script>
 </head>
 <body>
 
@@ -77,7 +104,14 @@
       <nav class="nav" id="nav" aria-label="Navigation principale">
         <ul class="nav__list">
           <li><a href="#accueil" class="nav__link" data-i18n="nav.home">Accueil</a></li>
-          <li><a href="#services" class="nav__link" data-i18n="nav.services">Services</a></li>
+          <li class="nav__item--dropdown">
+            <a href="#services" class="nav__link" data-i18n="nav.services">Services</a>
+            <ul class="nav__dropdown">
+              <li><a href="site-vitrine.html" class="nav__dropdown-link" data-i18n="nav.serviceVitrine">Sites vitrines</a></li>
+              <li><a href="ecommerce.html" class="nav__dropdown-link" data-i18n="nav.serviceEcommerce">E-commerce</a></li>
+              <li><a href="seo.html" class="nav__dropdown-link" data-i18n="nav.serviceSeo">Référencement SEO</a></li>
+            </ul>
+          </li>
           <li><a href="rendez-vous.html" class="nav__link" data-i18n="nav.appointment">Rendez-vous</a></li>
           <li><a href="#pourquoi-nous" class="nav__link" data-i18n="nav.why">Pourquoi nous</a></li>
           <li><a href="#realisations" class="nav__link" data-i18n="nav.projects">Réalisations</a></li>
@@ -92,6 +126,10 @@
         <button class="lang-toggle" id="lang-toggle" aria-label="Switch to English">
           <span class="lang-toggle__flag" aria-hidden="true">🇫🇷</span>
           <span class="lang-toggle__code">FR</span>
+        </button>
+
+        <button class="device-toggle" id="device-toggle" aria-label="Simuler la vue mobile">
+          <span class="device-toggle__icon">💻</span>
         </button>
 
         <button class="theme-toggle" id="theme-toggle" aria-label="Activer le mode clair">
@@ -130,6 +168,7 @@
       <!-- Effet de glow en arrière-plan -->
       <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
       <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
+      <canvas id="hero-particles" class="hero__particles" aria-hidden="true"></canvas>
 
       <div class="container hero__inner">
         <p class="hero__tag fade-in" data-i18n="hero.tag">Création de sites internet pour TPE/PME</p>
@@ -715,51 +754,6 @@
             </article>
             -->
 
-            <article class="review-card">
-              <div class="review-card__header">
-                <div class="review-card__identity">
-                  <span class="review-card__avatar review-card__avatar--purple" aria-hidden="true">IM</span>
-                  <div>
-                    <span class="review-card__name">Imad</span>
-                    <span class="review-card__entreprise">PROXYSERV</span>
-                  </div>
-                </div>
-                <span class="review-card__stars" aria-label="Note : 5 sur 5">★★★★★</span>
-              </div>
-              <p class="review-card__text">Service sérieux, ponctuel, travail de qualité. Je recommande !!!!!</p>
-              <span class="review-card__date">21 juin 2026</span>
-            </article>
-
-            <article class="review-card">
-              <div class="review-card__header">
-                <div class="review-card__identity">
-                  <span class="review-card__avatar review-card__avatar--blue" aria-hidden="true">KB</span>
-                  <div>
-                    <span class="review-card__name">Karim Benali</span>
-                    <span class="review-card__entreprise">KB Plomberie &amp; Chauffage</span>
-                  </div>
-                </div>
-                <span class="review-card__stars" aria-label="Note : 5 sur 5">★★★★★</span>
-              </div>
-              <p class="review-card__text">Avant je n'avais aucune présence sur internet. Aujourd'hui mon site est professionnel, rapide, et je reçois des demandes de devis chaque semaine. Équipe réactive et à l'écoute du début à la fin.</p>
-              <span class="review-card__date">22 juin 2026</span>
-            </article>
-
-            <article class="review-card">
-              <div class="review-card__header">
-                <div class="review-card__identity">
-                  <span class="review-card__avatar review-card__avatar--green" aria-hidden="true">LF</span>
-                  <div>
-                    <span class="review-card__name">Lucie Fontaine</span>
-                    <span class="review-card__entreprise">Cabinet LF Conseil</span>
-                  </div>
-                </div>
-                <span class="review-card__stars" aria-label="Note : 5 sur 5">★★★★★</span>
-              </div>
-              <p class="review-card__text">J'avais besoin d'un site qui inspire confiance à mes clients professionnels. Nexa Web a livré exactement ça : un design soigné, un contenu bien structuré, et une mise en ligne rapide. Un vrai plus pour mon activité.</p>
-              <span class="review-card__date">22 juin 2026</span>
-            </article>
-
           </div>
 
         </div>
@@ -921,23 +915,16 @@
         </a>
         <p class="footer__tagline" data-i18n="footer.tagline">Des sites internet sur-mesure pour les artisans et TPE des Hauts-de-France.</p>
         <div class="footer__socials">
-          <a href="#" class="footer__social" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-            </svg>
-          </a>
-          <a href="#" class="footer__social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/nexaaweb1" class="footer__social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="2" y="2" width="20" height="20" rx="5"></rect>
               <circle cx="12" cy="12" r="4"></circle>
               <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
             </svg>
           </a>
-          <a href="#" class="footer__social" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
+          <a href="https://www.tiktok.com/@nexaweb1" class="footer__social" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/>
             </svg>
           </a>
         </div>
@@ -1092,6 +1079,16 @@
         <a href="contact.html" class="btn btn--primary btn--lg welcome-popup__btn" id="welcome-popup-cta" data-i18n="welcomePopup.cta">J'en profite !</a>
         <button type="button" class="welcome-popup__dismiss" id="welcome-popup-dismiss" data-i18n="welcomePopup.dismiss">Non merci</button>
       </div>
+    </div>
+  </div>
+
+  <!-- ===================== POPUP DE SORTIE (EXIT INTENT) ===================== -->
+  <div class="exit-popup-overlay" id="exit-popup-overlay">
+    <div class="exit-popup" role="dialog" aria-modal="true" aria-labelledby="exit-popup-title">
+      <button type="button" class="exit-popup__close" id="exit-popup-close" aria-label="Fermer">✕</button>
+      <h3 class="exit-popup__title" id="exit-popup-title" data-i18n="exitPopup.title">Attendez ! 🎁</h3>
+      <p class="exit-popup__text" data-i18n="exitPopup.text">Obtenez votre devis gratuit en 24h — Sans engagement</p>
+      <a href="contact.html#contact" class="btn btn--primary btn--lg exit-popup__btn" id="exit-popup-cta" data-i18n="exitPopup.cta">Demander mon devis gratuit</a>
     </div>
   </div>
 

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Référencement Google (SEO) - Nexa Web | Carvin (62)</title>
+  <meta name="description" content="Améliorez votre référencement Google avec Nexa Web : SEO local, optimisation technique et suivi de positionnement pour TPE et artisans des Hauts-de-France.">
+  <meta name="keywords" content="référencement Google, SEO local, optimisation SEO, visibilité Google, Nexa Web, Carvin, Hauts-de-France">
+  <meta name="author" content="Nexa Web">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Référencement Google (SEO) - Nexa Web">
+  <meta property="og:description" content="Soyez visible quand vos clients vous recherchent sur Google.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Polices Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+  <script>
+    (function () {
+      var theme = localStorage.getItem('nexaweb-theme');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ===================== TOPBAR ===================== -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <a href="https://www.google.com/maps/search/Carvin,+Hauts-de-France" target="_blank" rel="noopener noreferrer" class="topbar__location">📍 <span data-i18n="footer.address">Carvin, Hauts-de-France</span></a>
+      <span class="topbar__phones">
+        📞 <a href="tel:0698840194" class="topbar__phone">06 98 84 01 94</a>
+        <span class="topbar__sep">|</span>
+        <a href="tel:0641467898" class="topbar__phone">06 41 46 78 98</a>
+        <span class="topbar__email-wrap">
+          <span class="topbar__sep">|</span>
+          <a href="mailto:contact.nexaweb62@gmail.com" class="topbar__phone" id="topbar-email-link">✉️ contact.nexaweb62@gmail.com</a>
+        </span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ===================== HEADER / NAVIGATION ===================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+
+      <a href="index.html#accueil" class="logo" aria-label="Nexa Web - Accueil">
+        Nexa<span class="logo__accent">Web</span>
+      </a>
+
+      <!-- Navigation desktop -->
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a href="index.html#accueil" class="nav__link" data-i18n="nav.home">Accueil</a></li>
+          <li class="nav__item--dropdown">
+            <a href="index.html#services" class="nav__link" data-i18n="nav.services">Services</a>
+            <ul class="nav__dropdown">
+              <li><a href="site-vitrine.html" class="nav__dropdown-link" data-i18n="nav.serviceVitrine">Sites vitrines</a></li>
+              <li><a href="ecommerce.html" class="nav__dropdown-link" data-i18n="nav.serviceEcommerce">E-commerce</a></li>
+              <li><a href="seo.html" class="nav__dropdown-link nav__link--active" aria-current="page" data-i18n="nav.serviceSeo">Référencement SEO</a></li>
+            </ul>
+          </li>
+          <li><a href="rendez-vous.html" class="nav__link" data-i18n="nav.appointment">Rendez-vous</a></li>
+          <li><a href="index.html#realisations" class="nav__link" data-i18n="nav.projects">Réalisations</a></li>
+          <li><a href="tarifs.html" class="nav__link" data-i18n="nav.pricing">Tarifs</a></li>
+          <li><a href="blog.html" class="nav__link" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Switch to English">
+          <span class="lang-toggle__flag" aria-hidden="true">🇫🇷</span>
+          <span class="lang-toggle__code">FR</span>
+        </button>
+
+        <button class="theme-toggle" id="theme-toggle" aria-label="Activer le mode clair">
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="M4.93 4.93l1.41 1.41"></path>
+            <path d="M17.66 17.66l1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="M6.34 17.66l-1.41 1.41"></path>
+            <path d="M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+        </button>
+
+        <a href="devis.html" class="btn btn--primary btn--header" data-i18n="header.quoteBtn">Devis gratuit</a>
+      </div>
+
+      <!-- Bouton burger mobile -->
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== BANNIÈRE DE PAGE ===================== -->
+    <section class="page-banner" id="seo">
+      <div class="page-banner__glow" aria-hidden="true"></div>
+
+      <div class="container page-banner__inner">
+        <p class="hero__tag fade-in">Référencement Google</p>
+        <h1 class="page-banner__title fade-in">
+          Soyez visible quand vos clients <span class="text-accent">vous recherchent</span>
+        </h1>
+        <p class="page-banner__subtitle fade-in">
+          Un bon référencement (SEO), c'est plus de visibilité sur Google et plus de demandes de devis, sans publicité payante.
+        </p>
+        <a href="devis.html" class="btn btn--primary btn--lg fade-in">Demander un devis gratuit</a>
+      </div>
+    </section>
+
+    <!-- ===================== AVANTAGES ===================== -->
+    <section id="avantages">
+      <div class="container">
+        <div class="section-head fade-in">
+          <p class="section-tag">Avantages</p>
+          <h2 class="section-title">Pourquoi travailler le SEO ?</h2>
+        </div>
+        <div class="why__grid">
+          <article class="why-card fade-in">
+            <div class="why-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <h3 class="why-card__title">Référencement local</h3>
+            <p class="why-card__text">Apparaissez auprès des clients qui recherchent vos services près de chez eux.</p>
+          </article>
+          <article class="why-card fade-in">
+            <div class="why-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+            </div>
+            <h3 class="why-card__title">Mots-clés ciblés</h3>
+            <p class="why-card__text">Votre site est optimisé sur les recherches réellement utilisées par vos clients.</p>
+          </article>
+          <article class="why-card fade-in">
+            <div class="why-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>
+            </div>
+            <h3 class="why-card__title">Suivi de positionnement</h3>
+            <p class="why-card__text">Vous savez exactement où vous vous situez sur Google, et son évolution dans le temps.</p>
+          </article>
+          <article class="why-card fade-in">
+            <div class="why-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 class="why-card__title">Plus de clients</h3>
+            <p class="why-card__text">Plus de visibilité sur Google se traduit directement par plus de demandes de devis.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROCESSUS ===================== -->
+    <section id="processus" style="background: var(--color-surface);">
+      <div class="container">
+        <div class="section-head fade-in">
+          <p class="section-tag">Notre processus</p>
+          <h2 class="section-title">Comment ça se passe</h2>
+        </div>
+        <div class="trust__grid">
+          <article class="trust-card fade-in">
+            <div class="trust-card__icon" aria-hidden="true" style="font-weight:700; font-size:1.3rem;">1</div>
+            <h3 class="trust-card__title">Audit SEO</h3>
+            <p class="trust-card__text">On analyse votre site et votre positionnement actuel sur Google.</p>
+          </article>
+          <article class="trust-card fade-in">
+            <div class="trust-card__icon" aria-hidden="true" style="font-weight:700; font-size:1.3rem;">2</div>
+            <h3 class="trust-card__title">Optimisation technique</h3>
+            <p class="trust-card__text">Structure, vitesse, contenu : on optimise tous les leviers SEO de votre site.</p>
+          </article>
+          <article class="trust-card fade-in">
+            <div class="trust-card__icon" aria-hidden="true" style="font-weight:700; font-size:1.3rem;">3</div>
+            <h3 class="trust-card__title">Suivi des mots-clés</h3>
+            <p class="trust-card__text">On surveille l'évolution de votre positionnement sur vos mots-clés cibles.</p>
+          </article>
+          <article class="trust-card fade-in">
+            <div class="trust-card__icon" aria-hidden="true" style="font-weight:700; font-size:1.3rem;">4</div>
+            <h3 class="trust-card__title">Rapport mensuel</h3>
+            <p class="trust-card__text">Vous recevez un rapport clair sur vos résultats et les actions à venir.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TARIF ===================== -->
+    <section id="tarif">
+      <div class="container">
+        <div class="service-pricing fade-in">
+          <p class="section-tag">Tarif</p>
+          <p class="service-pricing__amount">SEO de base inclus</p>
+          <p style="color: var(--color-text-muted); margin-bottom: 20px;">Le SEO de base est inclus dans toutes nos formules. Le SEO avancé et le suivi de positionnement sont proposés avec la formule Premium.</p>
+          <a href="tarifs.html" class="btn btn--ghost">Voir toutes les formules</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA FINALE ===================== -->
+    <section class="service-cta">
+      <div class="container">
+        <h2 class="service-cta__title">Prêt à être visible sur Google ?</h2>
+        <p class="service-cta__text">Demandez un devis gratuit, sans engagement, et recevez une réponse sous 24h.</p>
+        <a href="devis.html" class="btn btn--primary btn--lg">Demander un devis gratuit</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer__grid">
+
+      <div class="footer__brand">
+        <a href="index.html#accueil" class="logo" aria-label="Nexa Web - Accueil">
+          Nexa<span class="logo__accent">Web</span>
+        </a>
+        <p class="footer__tagline" data-i18n="footer.tagline">Des sites internet sur-mesure pour les artisans et TPE des Hauts-de-France.</p>
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/nexaaweb1" class="footer__social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+          <a href="https://www.tiktok.com/@nexaweb1" class="footer__social" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__col-title" data-i18n="footer.quickLinks">Liens rapides</h3>
+        <ul class="footer__col-list">
+          <li><a href="index.html#accueil" data-i18n="nav.home">Accueil</a></li>
+          <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+          <li><a href="index.html#realisations" data-i18n="nav.projects">Réalisations</a></li>
+          <li><a href="tarifs.html" data-i18n="nav.pricing">Tarifs</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__col-title" data-i18n="footer.legalTitle">Légal</h3>
+        <ul class="footer__col-list">
+          <li><a href="mentions-legales.html#mentions-legales" data-i18n="footer.legal">Mentions légales</a></li>
+          <li><a href="mentions-legales.html#cgv" data-i18n="footer.cgv">CGV</a></li>
+          <li><a href="mentions-legales.html#cookies" data-i18n="footer.cookiesPolicy">Politique cookies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__col-title" data-i18n="footer.contactTitle">Contact</h3>
+        <ul class="footer__contact">
+          <li class="footer__contact-item">
+            <span class="footer__contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </span>
+            <span class="footer__contact-numbers">
+              <a href="tel:0698840194" class="footer__contact-number">06 98 84 01 94</a>
+              <span class="footer__contact-or">ou</span>
+              <a href="tel:0641467898" class="footer__contact-number">06 41 46 78 98</a>
+            </span>
+          </li>
+          <li>
+            <a href="mailto:contact.nexaweb62@gmail.com" class="footer__contact-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m3 7 9 6 9-6"></path>
+              </svg>
+              contact.nexaweb62@gmail.com
+            </a>
+          </li>
+          <li>
+            <span class="footer__contact-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span data-i18n="footer.address">Carvin, Hauts-de-France</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="container footer__bottom">
+      <p data-i18n="footer.copyright">© 2025 Nexa Web — Tous droits réservés — Carvin (62)</p>
+    </div>
+  </footer>
+
+  <!-- ===================== POPUP TÉLÉPHONE ===================== -->
+  <div class="phone-modal-overlay" id="phone-modal-overlay">
+    <div class="phone-modal" role="dialog" aria-modal="true" aria-labelledby="phone-modal-title">
+      <button type="button" class="phone-modal__close" id="phone-modal-close" aria-label="Fermer">✕</button>
+      <h3 class="phone-modal__title" id="phone-modal-title" data-i18n="phoneModal.title">Comment voulez-vous nous contacter ?</h3>
+      <div class="phone-modal__actions">
+        <button type="button" class="btn btn--primary btn--lg phone-modal__btn" id="phone-modal-call" data-i18n="phoneModal.call">📞 Appeler maintenant</button>
+        <button type="button" class="btn btn--ghost btn--lg phone-modal__btn" data-i18n="phoneModal.appointment" onclick='Calendly.initPopupWidget({url: "https://calendly.com/contact-nexaweb62/30min"});return false;'>📅 Prendre un rendez-vous</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== POPUP EMAIL (TOPBAR) ===================== -->
+  <div class="email-modal-overlay" id="email-modal-overlay">
+    <div class="email-modal" role="dialog" aria-modal="true" aria-labelledby="email-modal-title">
+      <button type="button" class="email-modal__close" id="email-modal-close" aria-label="Fermer">✕</button>
+      <h3 class="email-modal__title" id="email-modal-title" data-i18n="emailModal.title">Comment pouvons-nous vous aider ?</h3>
+      <div class="email-modal__actions">
+        <a href="contact.html#contact" class="btn btn--primary btn--lg email-modal__btn" id="email-modal-devis" data-i18n="emailModal.devisBtn">📋 Demander un devis</a>
+        <button type="button" class="btn btn--ghost btn--lg email-modal__btn" data-i18n="phoneModal.appointment" onclick='Calendly.initPopupWidget({url: "https://calendly.com/contact-nexaweb62/30min"});return false;'>📅 Prendre un rendez-vous</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js"></script>
+  <script src="script.js"></script>
+  <script src="cookie-consent.js"></script>
+</body>
+</html>

@@ -300,6 +300,28 @@ h1, h2, h3 {
   flex-shrink: 0;
 }
 
+.device-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.device-toggle:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-strong);
+}
+
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -408,12 +430,35 @@ h1, h2, h3 {
   align-items: center;
   padding-top: 112px;
   overflow: hidden;
+  background: linear-gradient(135deg, #0d0517, #1a0b2e, #05030a, #1a0b2e);
+  background-size: 300% 300%;
+  animation: hero-gradient-shift 18s ease infinite;
+}
+
+@keyframes hero-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+[data-theme="light"] .hero {
+  background: none;
+  animation: none;
 }
 
 [data-theme="light"] .hero__glow,
 [data-theme="light"] .why__glow,
-[data-theme="light"] .page-banner__glow {
+[data-theme="light"] .page-banner__glow,
+[data-theme="light"] .hero__particles {
   display: none;
+}
+
+.hero__particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .hero__glow {
@@ -667,6 +712,43 @@ h1, h2, h3 {
   background: linear-gradient(135deg, #2a0e45, #3b0a5c);
 }
 
+/* ---------- Pages de services dédiées (CTA finale) ---------- */
+.service-cta {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #2a0e45, #3b0a5c);
+  text-align: center;
+}
+
+.service-cta__title {
+  color: #fff;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin-bottom: 14px;
+}
+
+.service-cta__text {
+  color: #d8b4fe;
+  max-width: 480px;
+  margin: 0 auto 28px;
+}
+
+.service-pricing {
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  text-align: center;
+}
+
+.service-pricing__amount {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  font-weight: 800;
+  color: var(--color-accent);
+  margin: 8px 0 20px;
+}
+
 .stats__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -881,6 +963,123 @@ h1, h2, h3 {
 
 .nav__link--active::after {
   width: 100%;
+}
+
+.nav__item--dropdown {
+  position: relative;
+}
+
+.nav__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  list-style: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 8px;
+  margin-top: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity var(--transition), transform var(--transition);
+  z-index: 50;
+}
+
+.nav__item--dropdown:hover .nav__dropdown,
+.nav__item--dropdown:focus-within .nav__dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav__dropdown-link {
+  display: block;
+  padding: 9px 12px;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-md);
+  transition: background var(--transition), color var(--transition);
+}
+
+.nav__dropdown-link:hover {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-strong);
+}
+
+/* ---------- 4f2. Calculateur de prix ---------- */
+.calculator {
+  padding: 100px 0;
+}
+
+.calculator__box {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+
+.calculator__question {
+  margin-bottom: 28px;
+}
+
+.calculator__label {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.calculator__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.calculator__option {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+
+.calculator__option:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.calculator__option.is-active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.calculator__result {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--color-border);
+}
+
+.calculator__result-label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+.calculator__result-price {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: var(--color-accent);
+  margin-bottom: 20px;
 }
 
 /* ---------- 4g. Section Tarifs ---------- */
@@ -2060,6 +2259,19 @@ a.footer__contact-link:hover {
     font-size: 1.1rem;
   }
 
+  .nav__dropdown {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin-top: 12px;
+    padding: 0;
+    text-align: center;
+  }
+
   .btn--header {
     display: none;
   }
@@ -2625,6 +2837,77 @@ a.footer__contact-link:hover {
   color: var(--color-text);
 }
 
+/* ---------- Popup de sortie (exit intent) ---------- */
+.exit-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+  z-index: 1400;
+}
+
+.exit-popup-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.exit-popup {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px 28px;
+  text-align: center;
+  box-shadow: 0 0 50px var(--color-accent-soft), 0 20px 50px rgba(0, 0, 0, 0.5);
+  transform: translateY(16px) scale(0.96);
+  transition: transform var(--transition);
+}
+
+.exit-popup-overlay.is-open .exit-popup {
+  transform: translateY(0) scale(1);
+}
+
+.exit-popup__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.exit-popup__close:hover {
+  color: var(--color-accent-strong);
+}
+
+.exit-popup__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.exit-popup__text {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.exit-popup__btn {
+  width: 100%;
+}
+
 /* ---------- Popup email (topbar) ---------- */
 .email-modal-overlay {
   position: fixed;
@@ -3072,4 +3355,149 @@ a.footer__contact-link:hover {
     background: #fff;
     color: #000;
   }
+}
+
+/* ---------- Simulateur de vue mobile/desktop ---------- */
+html.device-preview {
+  background: #2b2b33;
+}
+
+html.device-preview body {
+  max-width: 390px;
+  height: 100vh;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform: scale(1);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 0 60px rgba(0, 0, 0, 0.6);
+  transition: max-width 0.4s ease;
+}
+
+/* Force la mise en page mobile (la même qu'aux vraies petites largeurs d'écran),
+   car les media queries se basent sur la largeur réelle du viewport, pas sur
+   la largeur visuelle réduite du <body>. */
+html.device-preview .nav {
+  position: fixed;
+  top: 112px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 112px);
+  background: var(--color-bg-soft);
+  flex-direction: column;
+  justify-content: flex-start;
+  border-top: 1px solid var(--color-border);
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition);
+}
+
+html.device-preview .nav.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+html.device-preview .nav__list {
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 48px 24px;
+}
+
+html.device-preview .nav__link {
+  font-size: 1.1rem;
+}
+
+html.device-preview .nav__dropdown {
+  position: static;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin-top: 12px;
+  padding: 0;
+  text-align: center;
+}
+
+html.device-preview .btn--header {
+  display: none;
+}
+
+html.device-preview .burger {
+  display: flex;
+}
+
+html.device-preview .topbar__location,
+html.device-preview .topbar__email-wrap {
+  display: none;
+}
+
+html.device-preview .topbar__inner {
+  justify-content: center;
+}
+
+html.device-preview .services__grid,
+html.device-preview .why__grid,
+html.device-preview .portfolio__grid,
+html.device-preview .trust__grid,
+html.device-preview .trust__reviews,
+html.device-preview .testimonials__grid,
+html.device-preview .contact__grid,
+html.device-preview .reviews__grid,
+html.device-preview .form-row,
+html.device-preview .footer__grid {
+  grid-template-columns: 1fr;
+}
+
+html.device-preview .pricing__grid {
+  grid-template-columns: 1fr;
+  max-width: 100%;
+}
+
+html.device-preview .hero__title {
+  font-size: 2rem;
+}
+
+html.device-preview .hero__subtitle {
+  font-size: 1rem;
+}
+
+html.device-preview .hero__actions {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+html.device-preview .footer__grid {
+  gap: 32px;
+}
+
+html.device-preview .footer__contact {
+  flex-direction: column;
+  gap: 14px;
+}
+
+html.device-preview .chatbot-window {
+  right: 12px;
+  left: 12px;
+  bottom: 90px;
+  width: auto;
+}
+
+html.device-preview .chatbot-toggle {
+  right: 16px;
+  bottom: 16px;
+}
+
+html.device-preview .whatsapp-button {
+  right: 16px;
+  bottom: 86px;
+}
+
+html.device-preview .scroll-top-btn {
+  right: 16px;
+  bottom: 146px;
+  width: 44px;
+  height: 44px;
 }

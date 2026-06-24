@@ -2,20 +2,24 @@
    NEXA WEB — SCRIPT
    0. Traductions (i18n FR / EN)
    1. Thème clair / sombre
+   1b. Simulateur de vue mobile/desktop
    2. Menu mobile (burger)
    3. Fermeture du menu au clic sur un lien
    3b. Barre de progression au scroll
+   3c. Particules canvas (hero)
    4. Animations au scroll (fade-in)
    4b. Compteur animé (section stats)
    4c. Accordéon FAQ
    4d3. Bouton retour en haut
    5. Préremplissage du champ "Type de projet" (devis.html ?formule=...)
+   5d. Calculateur de prix interactif (tarifs.html)
    6. Formulaires (contact.html, devis.html) via EmailJS
    7. Avis clients (index.html) via Formspree
    8. Popup téléphone (header, footer, section contact)
    8b. Popup email (topbar)
    8c. Popup réalisations (aperçu projet en iframe)
    9. Popup offre de lancement (index.html)
+   9b. Popup de sortie (exit intent, index.html)
    ========================================================= */
 
 const EMAILJS_PUBLIC_KEY = '0CJOZVh0vzQKV26v5';
@@ -29,6 +33,9 @@ const TRANSLATIONS = {
   fr: {
     'nav.home': 'Accueil',
     'nav.services': 'Services',
+    'nav.serviceVitrine': 'Sites vitrines',
+    'nav.serviceEcommerce': 'E-commerce',
+    'nav.serviceSeo': 'Référencement SEO',
     'nav.appointment': 'Rendez-vous',
     'nav.why': 'Pourquoi nous',
     'nav.projects': 'Réalisations',
@@ -59,6 +66,9 @@ const TRANSLATIONS = {
     'welcomePopup.text': "Pour tout projet signé avant le 31 juillet 2026, bénéficiez d'1 mois de maintenance offert ! Soit 29€ offerts",
     'welcomePopup.cta': "J'en profite !",
     'welcomePopup.dismiss': 'Non merci',
+    'exitPopup.title': 'Attendez ! 🎁',
+    'exitPopup.text': 'Obtenez votre devis gratuit en 24h — Sans engagement',
+    'exitPopup.cta': 'Demander mon devis gratuit',
 
     'whatsapp.tooltip': 'Discutez avec nous sur WhatsApp !',
     'chatbot.welcome': "Bonjour ! Je suis l'assistant Nexa Web 👋 Comment puis-je vous aider ?",
@@ -182,6 +192,24 @@ const TRANSLATIONS = {
     'pricingBanner.part1': 'Des tarifs simples, pensés pour les ',
     'pricingBanner.accent': 'petites entreprises',
     'pricingBanner.subtitle': 'Trois formules claires, sans coûts cachés. Chaque projet reste personnalisable selon vos besoins réels.',
+
+    'calculator.tag': 'Calculateur',
+    'calculator.title': 'Estimez le prix de votre projet',
+    'calculator.subtitle': 'Répondez à 3 questions pour obtenir une estimation immédiate.',
+    'calculator.q1': 'Type de site ?',
+    'calculator.opt.vitrine': 'Vitrine',
+    'calculator.opt.ecommerce': 'E-commerce',
+    'calculator.opt.refonte': 'Refonte',
+    'calculator.q2': 'Nombre de pages ?',
+    'calculator.opt.pages1': '1 à 3',
+    'calculator.opt.pages2': '4 à 7',
+    'calculator.opt.pages3': '8 et plus',
+    'calculator.q3': 'Délai souhaité ?',
+    'calculator.opt.express': 'Express (5j)',
+    'calculator.opt.normal': 'Normal (10j)',
+    'calculator.opt.flexible': 'Flexible (15j)',
+    'calculator.resultLabel': 'Prix estimé',
+    'calculator.cta': 'Obtenir ce tarif',
     'pricing.priceLabel': 'À partir de',
     'pricing.cta': 'Demander un devis',
     'pricing.card1.name': 'Essentiel',
@@ -350,6 +378,9 @@ const TRANSLATIONS = {
   en: {
     'nav.home': 'Home',
     'nav.services': 'Services',
+    'nav.serviceVitrine': 'Showcase websites',
+    'nav.serviceEcommerce': 'E-commerce',
+    'nav.serviceSeo': 'SEO',
     'nav.appointment': 'Book a call',
     'nav.why': 'Why choose us',
     'nav.projects': 'Our projects',
@@ -380,6 +411,9 @@ const TRANSLATIONS = {
     'welcomePopup.text': "For any project signed before July 31, 2026, get 1 month of maintenance for free! That's €29 off",
     'welcomePopup.cta': "I'm interested!",
     'welcomePopup.dismiss': 'No thanks',
+    'exitPopup.title': 'Wait! 🎁',
+    'exitPopup.text': 'Get your free quote within 24h — No commitment',
+    'exitPopup.cta': 'Request my free quote',
 
     'whatsapp.tooltip': 'Chat with us on WhatsApp!',
     'chatbot.welcome': "Hello! I'm the Nexa Web assistant 👋 How can I help you?",
@@ -503,6 +537,24 @@ const TRANSLATIONS = {
     'pricingBanner.part1': 'Simple pricing, designed for ',
     'pricingBanner.accent': 'small businesses',
     'pricingBanner.subtitle': 'Three clear packages, no hidden costs. Every project remains customisable to your real needs.',
+
+    'calculator.tag': 'Calculator',
+    'calculator.title': 'Estimate the price of your project',
+    'calculator.subtitle': 'Answer 3 questions to get an instant estimate.',
+    'calculator.q1': 'Type of website?',
+    'calculator.opt.vitrine': 'Showcase',
+    'calculator.opt.ecommerce': 'E-commerce',
+    'calculator.opt.refonte': 'Redesign',
+    'calculator.q2': 'Number of pages?',
+    'calculator.opt.pages1': '1 to 3',
+    'calculator.opt.pages2': '4 to 7',
+    'calculator.opt.pages3': '8 or more',
+    'calculator.q3': 'Desired turnaround?',
+    'calculator.opt.express': 'Express (5d)',
+    'calculator.opt.normal': 'Normal (10d)',
+    'calculator.opt.flexible': 'Flexible (15d)',
+    'calculator.resultLabel': 'Estimated price',
+    'calculator.cta': 'Get this price',
     'pricing.priceLabel': 'Starting at',
     'pricing.cta': 'Request a quote',
     'pricing.card1.name': 'Essential',
@@ -763,6 +815,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---------- 1b. Simulateur de vue mobile/desktop ---------- */
+  const deviceToggle = document.getElementById('device-toggle');
+
+  if (deviceToggle) {
+    const deviceToggleIcon = deviceToggle.querySelector('.device-toggle__icon');
+
+    deviceToggle.addEventListener('click', () => {
+      const isPreview = document.documentElement.classList.toggle('device-preview');
+      if (deviceToggleIcon) deviceToggleIcon.textContent = isPreview ? '📱' : '💻';
+      deviceToggle.setAttribute(
+        'aria-label',
+        isPreview ? 'Revenir à la vue ordinateur' : 'Simuler la vue mobile'
+      );
+    });
+  }
+
   if (typeof emailjs !== 'undefined') {
     emailjs.init(EMAILJS_PUBLIC_KEY);
   }
@@ -800,6 +868,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', updateScrollProgress);
     updateScrollProgress();
+  }
+
+  /* ---------- 3c. Particules canvas (hero) ---------- */
+  const particlesCanvas = document.getElementById('hero-particles');
+
+  if (particlesCanvas) {
+    const particlesCtx = particlesCanvas.getContext('2d');
+    const heroEl = particlesCanvas.closest('.hero');
+    let particles = [];
+
+    function resizeParticlesCanvas() {
+      particlesCanvas.width = heroEl.offsetWidth;
+      particlesCanvas.height = heroEl.offsetHeight;
+    }
+
+    function createParticles() {
+      const count = Math.min(60, Math.floor((particlesCanvas.width * particlesCanvas.height) / 18000));
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * particlesCanvas.width,
+        y: Math.random() * particlesCanvas.height,
+        r: 1 + Math.random() * 2,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        o: 0.2 + Math.random() * 0.4
+      }));
+    }
+
+    function drawParticles() {
+      particlesCtx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
+
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = particlesCanvas.width;
+        if (p.x > particlesCanvas.width) p.x = 0;
+        if (p.y < 0) p.y = particlesCanvas.height;
+        if (p.y > particlesCanvas.height) p.y = 0;
+
+        particlesCtx.beginPath();
+        particlesCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        particlesCtx.fillStyle = `rgba(168, 85, 247, ${p.o})`;
+        particlesCtx.fill();
+      });
+
+      if (document.visibilityState === 'visible') {
+        requestAnimationFrame(drawParticles);
+      }
+    }
+
+    resizeParticlesCanvas();
+    createParticles();
+    drawParticles();
+
+    window.addEventListener('resize', () => {
+      resizeParticlesCanvas();
+      createParticles();
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') drawParticles();
+    });
   }
 
   /* ---------- 4. Animations au scroll (fade-in) ---------- */
@@ -930,6 +1060,34 @@ document.addEventListener('DOMContentLoaded', () => {
       const hideBudget = FORMULES_SANS_BUDGET.includes(typeProjetSelect.value);
       if (budgetGroupEl) budgetGroupEl.style.display = hideBudget ? 'none' : '';
     });
+  }
+
+  /* ---------- 5d. Calculateur de prix interactif (tarifs.html) ---------- */
+  const calculatorPriceEl = document.getElementById('calculator-price');
+
+  if (calculatorPriceEl) {
+    const calculatorGroups = document.querySelectorAll('.calculator__options');
+
+    function updateCalculatorPrice() {
+      let total = 0;
+      calculatorGroups.forEach(group => {
+        const active = group.querySelector('.calculator__option.is-active');
+        if (active) total += Number(active.dataset.value);
+      });
+      calculatorPriceEl.textContent = total + ' €';
+    }
+
+    calculatorGroups.forEach(group => {
+      group.querySelectorAll('.calculator__option').forEach(option => {
+        option.addEventListener('click', () => {
+          group.querySelectorAll('.calculator__option').forEach(btn => btn.classList.remove('is-active'));
+          option.classList.add('is-active');
+          updateCalculatorPrice();
+        });
+      });
+    });
+
+    updateCalculatorPrice();
   }
 
   /* ---------- 6. Formulaires (contact.html, devis.html) ---------- */
@@ -1243,6 +1401,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
       welcomePopupOverlay.addEventListener('click', (event) => {
         if (event.target === welcomePopupOverlay) closeWelcomePopup();
+      });
+    }
+  }
+
+  /* ---------- 9b. Popup de sortie (exit intent) ---------- */
+  const exitPopupOverlay = document.getElementById('exit-popup-overlay');
+
+  if (exitPopupOverlay) {
+    const EXIT_POPUP_SESSION_KEY = 'nexaweb-exit-popup-shown';
+
+    function closeExitPopup() {
+      exitPopupOverlay.classList.remove('is-open');
+    }
+
+    if (!sessionStorage.getItem(EXIT_POPUP_SESSION_KEY)) {
+      function handleExitIntent(event) {
+        if (event.clientY <= 20) {
+          exitPopupOverlay.classList.add('is-open');
+          sessionStorage.setItem(EXIT_POPUP_SESSION_KEY, '1');
+          document.removeEventListener('mousemove', handleExitIntent);
+        }
+      }
+
+      setTimeout(() => {
+        document.addEventListener('mousemove', handleExitIntent);
+      }, 3000);
+
+      document.getElementById('exit-popup-close').addEventListener('click', closeExitPopup);
+      document.getElementById('exit-popup-cta').addEventListener('click', closeExitPopup);
+
+      exitPopupOverlay.addEventListener('click', (event) => {
+        if (event.target === exitPopupOverlay) closeExitPopup();
       });
     }
   }
