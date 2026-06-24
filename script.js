@@ -4,6 +4,7 @@
    1. Thème clair / sombre
    2. Menu mobile (burger)
    3. Fermeture du menu au clic sur un lien
+   3b. Barre de progression au scroll
    4. Animations au scroll (fade-in)
    4b. Compteur animé (section stats)
    4c. Accordéon FAQ
@@ -33,11 +34,19 @@ const TRANSLATIONS = {
     'nav.projects': 'Réalisations',
     'nav.reviews': 'Avis',
     'nav.pricing': 'Tarifs',
+    'nav.blog': 'Blog',
     'nav.contact': 'Contact',
     'header.quoteBtn': 'Devis gratuit',
 
     'footer.address': 'Carvin, Hauts-de-France',
     'footer.legal': 'Mentions légales',
+    'footer.tagline': 'Des sites internet sur-mesure pour les artisans et TPE des Hauts-de-France.',
+    'footer.quickLinks': 'Liens rapides',
+    'footer.legalTitle': 'Légal',
+    'footer.cgv': 'CGV',
+    'footer.cookiesPolicy': 'Politique cookies',
+    'footer.contactTitle': 'Contact',
+    'footer.copyright': '© 2025 Nexa Web — Tous droits réservés — Carvin (62)',
 
     'phoneModal.title': 'Comment voulez-vous nous contacter ?',
     'phoneModal.call': '📞 Appeler maintenant',
@@ -61,6 +70,9 @@ const TRANSLATIONS = {
     'hero.subtitle': 'Nexa Web conçoit des sites internet modernes, rapides et sur-mesure pour les artisans, commerçants et petites entreprises — basé à Carvin, à votre service partout en France.',
     'hero.btnQuote': 'Demander un devis gratuit',
     'hero.btnProjects': 'Voir nos réalisations',
+    'hero.badge1': 'Site sécurisé SSL',
+    'hero.badge2': 'Garantie 30 jours',
+    'hero.badge3': 'Réponse sous 24h',
 
     'engagements.title': "J'applique 4 engagements à votre projet web",
     'engagements.item1.title': 'Rapidité',
@@ -156,6 +168,15 @@ const TRANSLATIONS = {
     'faq.a5': 'Oui, garantie 30 jours satisfait ou remboursé.',
     'faq.q6': 'Vous déplacez-vous ?',
     'faq.a6': 'On travaille à distance, partout en France.',
+
+    'testimonials.tag': 'Témoignages',
+    'testimonials.title': 'Ils nous ont fait confiance',
+    'testimonials.item1.meta': 'Carvin — Site vitrine',
+    'testimonials.item1.text': 'Mon site vitrine a été livré en 5 jours, je suis ravie !',
+    'testimonials.item2.meta': 'Lens — Site vitrine restaurant',
+    'testimonials.item2.text': 'Super travail, mon restaurant a maintenant une belle présence en ligne.',
+    'testimonials.item3.meta': 'Hénin-Beaumont — Refonte de site',
+    'testimonials.item3.text': 'Très professionnel, je recommande sans hésiter.',
 
     'pricingBanner.tag': 'Tarifs',
     'pricingBanner.part1': 'Des tarifs simples, pensés pour les ',
@@ -334,11 +355,19 @@ const TRANSLATIONS = {
     'nav.projects': 'Our projects',
     'nav.reviews': 'Reviews',
     'nav.pricing': 'Pricing',
+    'nav.blog': 'Blog',
     'nav.contact': 'Contact',
     'header.quoteBtn': 'Get a free quote',
 
     'footer.address': 'Carvin, Northern France',
     'footer.legal': 'Legal notice',
+    'footer.tagline': 'Custom-built websites for craftspeople and small businesses in Northern France.',
+    'footer.quickLinks': 'Quick links',
+    'footer.legalTitle': 'Legal',
+    'footer.cgv': 'Terms of sale',
+    'footer.cookiesPolicy': 'Cookie policy',
+    'footer.contactTitle': 'Contact',
+    'footer.copyright': '© 2025 Nexa Web — All rights reserved — Carvin, France',
 
     'phoneModal.title': 'How would you like to contact us?',
     'phoneModal.call': '📞 Call now',
@@ -362,6 +391,9 @@ const TRANSLATIONS = {
     'hero.subtitle': "Nexa Web designs modern, fast and tailor-made websites for craftsmen, shopkeepers and small businesses — based in Carvin, serving you all over France.",
     'hero.btnQuote': 'Get a free quote',
     'hero.btnProjects': 'See our projects',
+    'hero.badge1': 'SSL secured website',
+    'hero.badge2': '30-day guarantee',
+    'hero.badge3': 'Response within 24h',
 
     'engagements.title': 'I bring 4 commitments to your web project',
     'engagements.item1.title': 'Speed',
@@ -457,6 +489,15 @@ const TRANSLATIONS = {
     'faq.a5': 'Yes, a 30-day money-back guarantee.',
     'faq.q6': 'Do you travel to clients?',
     'faq.a6': 'We work remotely, serving clients all over France.',
+
+    'testimonials.tag': 'Testimonials',
+    'testimonials.title': 'They trusted us',
+    'testimonials.item1.meta': 'Carvin — Showcase website',
+    'testimonials.item1.text': 'My showcase website was delivered in 5 days, I am delighted!',
+    'testimonials.item2.meta': 'Lens — Restaurant website',
+    'testimonials.item2.text': 'Great work, my restaurant now has a beautiful online presence.',
+    'testimonials.item3.meta': 'Hénin-Beaumont — Website redesign',
+    'testimonials.item3.text': 'Very professional, I recommend without hesitation.',
 
     'pricingBanner.tag': 'Pricing',
     'pricingBanner.part1': 'Simple pricing, designed for ',
@@ -747,6 +788,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ---------- 3b. Barre de progression au scroll ---------- */
+  const scrollProgressBar = document.getElementById('scroll-progress');
+
+  if (scrollProgressBar) {
+    function updateScrollProgress() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+      scrollProgressBar.style.width = progress + '%';
+    }
+
+    window.addEventListener('scroll', updateScrollProgress);
+    updateScrollProgress();
+  }
+
   /* ---------- 4. Animations au scroll (fade-in) ---------- */
   const fadeElements = document.querySelectorAll('.fade-in');
 
@@ -977,6 +1032,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (form.id === 'devis-form') {
           setTimeout(() => openCalendlyWithPromo(), 2000);
+        } else if (form.id === 'contact-form') {
+          setTimeout(() => { window.location.href = 'merci.html'; }, 1500);
         }
       } catch (error) {
         feedback.dataset.state = 'error';

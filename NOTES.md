@@ -14,11 +14,14 @@ sites internet basée à Carvin (Hauts-de-France). Dernière mise à jour de ce 
 
 | Fichier | Rôle |
 |---|---|
-| `index.html` | Accueil — hero, engagements (timeline), services, pourquoi nous, réalisations, garanties + avis |
+| `index.html` | Accueil — hero (+ badges de confiance), engagements (timeline), services, pourquoi nous, compteur animé, réalisations, garanties + avis, témoignages, FAQ, footer complet |
 | `tarifs.html` | Grille tarifaire (Essentiel / Standard / Premium / Maintenance) |
-| `contact.html` | Formulaire de contact |
+| `contact.html` | Formulaire de contact (redirige vers `merci.html` après envoi réussi) |
 | `devis.html` | Formulaire de demande de devis (reCAPTCHA v2 + relance Calendly après envoi) |
 | `rendez-vous.html` | Réservation d'un appel découverte (Calendly) |
+| `merci.html` | Page de remerciement après envoi du formulaire de contact (confettis CSS/JS) |
+| `blog.html` | Blog — 2 articles (besoin d'un site en 2025, erreurs à éviter) |
+| `contrat.html` | Modèle de contrat de prestation à compléter, non indexée, bouton impression/PDF |
 | `projet-atelier-dubois.html` | Étude de cas — site vitrine artisan (orpheline : plus liée depuis `index.html`) |
 | `projet-boutique-lea.html` | Étude de cas — e-commerce (orpheline : plus liée depuis `index.html`) |
 | `projet-cabinet-martin.html` | Étude de cas — refonte de site (orpheline : plus liée depuis `index.html`) |
@@ -39,7 +42,7 @@ sites internet basée à Carvin (Hauts-de-France). Dernière mise à jour de ce 
 | **Anthropic API** | Modèle utilisé par le chatbot | `claude-haiku-4-5-20251001`, max_tokens 300, prompt système FR ou EN selon la langue du site |
 | **Google reCAPTCHA v2** | Anti-spam sur le formulaire de devis (`devis.html`) | Clé de site `6LfxLi4tAAAAAAPSSlHxBoHxaHdTv4sBru9wcSTp` (clé publique, sans risque à exposer) |
 | **WhatsApp** | Bouton de chat direct | `https://wa.me/33698840194` |
-| **Google Analytics** | Mesure d'audience du site | Compte créé sur analytics.google.com avec `contact.nexaweb62@gmail.com` — Measurement ID `G-XXXXXXXXXX` à compléter dans `index.html` |
+| **Google Analytics** | Mesure d'audience du site | Compte créé sur analytics.google.com avec `contact.nexaweb62@gmail.com` — Measurement ID `G-8TPVX3PQ1S`, tag `gtag.js` installé dans `index.html` |
 | **Google Business Profile** | Fiche établissement (Google Maps / Recherche) | En cours de vérification — courrier postal de validation à recevoir |
 | **PayPal Business** | Facturation clients et réception de virements bancaires | Compte `contact.nexaweb62@gmail.com` |
 | **PWA** | Site installable sur mobile/desktop, mise en cache des fichiers principaux | `manifest.json` et `sw.js` ajoutés à la racine du projet |
@@ -115,13 +118,27 @@ sites internet basée à Carvin (Hauts-de-France). Dernière mise à jour de ce 
 - PWA installable sur mobile (`manifest.json` + `sw.js`)
 - Tarifs mis à jour (mention PWA ajoutée aux formules Standard et Premium)
 - Formulaire de devis : options de budget estimé nettoyées (500-1000€, 1000-2000€, +2000€)
+- **Google Analytics** installé (tag `gtag.js`, Measurement ID `G-8TPVX3PQ1S`) dans `index.html`
+- Page de remerciement `merci.html` (confettis, bouton retour accueil) — le formulaire de contact
+  (`contact.html`) y redirige automatiquement après envoi réussi
+- Barre de progression de scroll violette en haut de `index.html`
+- Animations au scroll en fondu + légère montée (`IntersectionObserver`, déjà en place et vérifiées)
+- Footer de `index.html` (et des nouvelles pages `blog.html`/`contrat.html`) refait : logo + slogan,
+  colonne Liens rapides, colonne Légal (mentions légales / CGV / cookies), icônes réseaux sociaux
+  (Facebook/Instagram/LinkedIn, liens vides pour l'instant), copyright "© 2025 Nexa Web"
+- Badges de confiance dans le hero de `index.html` (🔒 SSL, ✅ Garantie 30 jours, ⚡ Réponse sous 24h)
+- Section "Témoignages" dédiée sur `index.html` avec 3 nouveaux témoignages (Marie D./Carvin, Thomas
+  B./Lens, Sophie M./Hénin-Beaumont), avatars CSS à initiales colorées, étoiles, ville + type de projet
+- Lien "Blog" ajouté à la navbar et au footer de `index.html`
 
 ## À faire
 
-- Finaliser **Google Analytics** (ajouter le Measurement ID `G-XXXXXXXXXX` dans `index.html` une fois le compte validé)
 - Finir la vérification de **Google Business Profile** (en attente du courrier postal)
 - Ajouter de **vraies captures Screely.com** dans la section Réalisations, à la place des 6 démos fictives actuelles
-- Page de remerciement (`merci.html`), animations au scroll renforcées, footer complet, blog (2 articles), modèle de contrat client
+- Remplacer les icônes réseaux sociaux du footer par les vraies pages Facebook/Instagram/LinkedIn de Nexa Web (liens vides pour l'instant)
+- Enrichir le blog (`blog.html`) au-delà des 2 premiers articles
+- Compléter et signer le modèle de contrat (`contrat.html`) au cas par cas pour chaque client (c'est un gabarit, pas un contrat pré-rempli)
+- Propager le nouveau footer complet (et le lien Blog) aux autres pages du site (`tarifs.html`, `contact.html`, `devis.html`, `rendez-vous.html`, `projet-*.html`), qui ont encore l'ancien footer simplifié
 
 ## Points en attente / à surveiller
 

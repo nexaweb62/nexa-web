@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Merci - Nexa Web</title>
+  <meta name="description" content="Votre demande a bien été envoyée. Nexa Web vous recontacte sous 24h.">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    (function () {
+      var theme = localStorage.getItem('nexaweb-theme');
+      if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ===================== HEADER SIMPLIFIÉ ===================== -->
+  <header class="legal-header">
+    <div class="container legal-header__inner">
+      <a href="index.html" class="logo" aria-label="Nexa Web - Accueil">
+        Nexa<span class="logo__accent">Web</span>
+      </a>
+      <a href="index.html" class="legal-header__back">← Retour à l'accueil</a>
+    </div>
+  </header>
+
+  <main class="thanks-page">
+    <div class="confetti-container" id="confetti-container" aria-hidden="true"></div>
+    <div class="container">
+      <div class="thanks-page__icon" aria-hidden="true">🎉</div>
+      <h1 class="thanks-page__title">Merci ! On vous recontacte sous 24h ✅</h1>
+      <p class="thanks-page__text">Votre demande a bien été envoyée à Nexa Web. Un membre de notre équipe revient vers vous très rapidement.</p>
+      <a href="index.html" class="btn btn--primary">Retour à l'accueil</a>
+    </div>
+  </main>
+
+  <!-- ===================== FOOTER SIMPLIFIÉ ===================== -->
+  <footer class="legal-footer">
+    <div class="container legal-footer__inner">
+      <span class="logo">Nexa<span class="logo__accent">Web</span></span>
+      <p>© 2026 Nexa Web — Tous droits réservés.</p>
+      <a href="index.html">Retour à l'accueil</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var colors = ['#a855f7', '#7c3aed', '#d8b4fe', '#facc15', '#34d399', '#f472b6'];
+      var container = document.getElementById('confetti-container');
+      var count = 70;
+
+      for (var i = 0; i < count; i++) {
+        var piece = document.createElement('span');
+        piece.className = 'confetti';
+        piece.style.left = Math.random() * 100 + '%';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDuration = (2.5 + Math.random() * 2) + 's';
+        piece.style.animationDelay = (Math.random() * 2) + 's';
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        container.appendChild(piece);
+      }
+    })();
+  </script>
+</body>
+</html>
